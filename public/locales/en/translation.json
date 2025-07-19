@@ -1,0 +1,29 @@
+{
+  "pricing": {
+    "title": "Pricing",
+    "cards": [
+      {
+        "name": "Basic",
+        "price": "$10",
+        "features": ["Feature A", "Feature B", "Feature C"]
+      },
+      {
+        "name": "Pro",
+        "price": "$30",
+        "features": ["Feature A", "Feature B", "Feature C", "Feature D"]
+      },
+      {
+        "name": "Enterprise",
+        "price": "Contact us",
+        "features": [
+          "Feature A",
+          "Feature B",
+          "Feature C",
+          "Feature D",
+          "Feature E"
+        ]
+      }
+    ],
+    "button": "Choose"
+  }
+}

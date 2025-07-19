@@ -1,0 +1,34 @@
+{
+  "pricing": {
+    "title": "Precios",
+    "cards": [
+      {
+        "name": "Básico",
+        "price": "$10",
+        "features": ["Característica A", "Característica B", "Característica C"]
+      },
+      {
+        "name": "Pro",
+        "price": "$30",
+        "features": [
+          "Característica A",
+          "Característica B",
+          "Característica C",
+          "Característica D"
+        ]
+      },
+      {
+        "name": "Empresarial",
+        "price": "Contáctanos",
+        "features": [
+          "Característica A",
+          "Característica B",
+          "Característica C",
+          "Característica D",
+          "Característica E"
+        ]
+      }
+    ],
+    "button": "Elegir"
+  }
+}

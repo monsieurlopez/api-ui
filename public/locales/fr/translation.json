@@ -1,0 +1,34 @@
+{
+  "pricing": {
+    "title": "Tarifs",
+    "cards": [
+      {
+        "name": "Basique",
+        "price": "10 €",
+        "features": ["Fonctionnalité A", "Fonctionnalité B", "Fonctionnalité C"]
+      },
+      {
+        "name": "Pro",
+        "price": "30 €",
+        "features": [
+          "Fonctionnalité A",
+          "Fonctionnalité B",
+          "Fonctionnalité C",
+          "Fonctionnalité D"
+        ]
+      },
+      {
+        "name": "Entreprise",
+        "price": "Contactez-nous",
+        "features": [
+          "Fonctionnalité A",
+          "Fonctionnalité B",
+          "Fonctionnalité C",
+          "Fonctionnalité D",
+          "Fonctionnalité E"
+        ]
+      }
+    ],
+    "button": "Choisir"
+  }
+}
