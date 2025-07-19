@@ -6,5 +6,5 @@ export default defineConfig({
   css: {
     postcss: "./postcss.config.js",
   },
-  base: "/api-ui/",
+  base: "/",
 });
