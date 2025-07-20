@@ -1,44 +1,23 @@
-import { useEffect, useState } from "react";
-import i18next from "i18next";
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "../hooks/useLanguage";
 
-type languageOption = { language: string; code: string };
-
-const languageOptions: languageOption[] = [
-  {
-    language: "English",
-    code: "en",
-  },
+const languageOptions = [
+  { language: "English", code: "en" },
   { language: "French", code: "fr" },
   { language: "Spanish", code: "es" },
 ];
 
 export const LanguageSelector = () => {
-  // Set the initial language from i18next's detected or default language
-  const [language, setLanguage] = useState(i18next.language);
-
-  const { i18n } = useTranslation();
-
-  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedLanguage = e.target.value;
-    setLanguage(selectedLanguage);
-    i18next.changeLanguage(selectedLanguage);
-  };
-
-  useEffect(() => {
-    document.body.dir = i18n.dir();
-  }, [i18n, i18n.language]);
+  const { language, setLanguage } = useLanguage();
 
   return (
     <select
-      id="language"
       value={language}
-      onChange={handleLanguageChange}
-      className="p-2 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
-        dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200 dark:focus:border-indigo-400 dark:focus:ring-indigo-700 dark:focus:ring-opacity-50 min-w-24"
+      onChange={(e) => setLanguage(e.target.value)}
+      className="p-2 border rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200
+        dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200 dark:focus:border-indigo-400 dark:focus:ring-indigo-700 min-w-24"
     >
-      {languageOptions.map(({ language, code }, key) => (
-        <option value={code} key={key}>
+      {languageOptions.map(({ language, code }) => (
+        <option key={code} value={code}>
           {language}
         </option>
       ))}

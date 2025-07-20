@@ -4,12 +4,15 @@ import "./index.css";
 import "./App.css";
 import "./plugins/i18n.tsx";
 import { ThemeProvider } from "./context/ThemeProvider.tsx";
+import { LanguageProvider } from "./context/LangauageProvider.tsx";
 import { ClerkWrapper } from "./components/ClerkWrapper.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
-      <ClerkWrapper />
+      <LanguageProvider>
+        <ClerkWrapper />
+      </LanguageProvider>
     </ThemeProvider>
   </StrictMode>
 );
