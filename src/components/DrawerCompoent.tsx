@@ -4,7 +4,7 @@ import { Drawer, Space, ConfigProvider, theme as antdTheme } from "antd";
 import { DarkModeToggle } from "./DarkModeToogle";
 import { LanguageSelector } from "./LanguageSelector";
 import { useTheme } from "../context/useTheme";
-import { ToolFilled } from "@ant-design/icons";
+import { SettingFilled } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 import "../assets/styles/Drawer.css";
 
@@ -20,7 +20,7 @@ export const DrawerComponent: React.FC = () => {
   return (
     <>
       <Space>
-        <ToolFilled
+        <SettingFilled
           type="primary"
           onClick={showDrawer}
           className="button-drawer"
