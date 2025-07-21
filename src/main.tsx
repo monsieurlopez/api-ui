@@ -1,5 +1,6 @@
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
 import "./index.css";
 import "./App.css";
 import "./plugins/i18n.tsx";
@@ -7,12 +8,14 @@ import { ThemeProvider } from "./context/ThemeProvider.tsx";
 import { LanguageProvider } from "./context/LangauageProvider.tsx";
 import { ClerkWrapper } from "./components/ClerkWrapper.tsx";
 
-createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeProvider>
-      <LanguageProvider>
-        <ClerkWrapper />
-      </LanguageProvider>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <LanguageProvider>
+          <ClerkWrapper />
+        </LanguageProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   </StrictMode>
 );

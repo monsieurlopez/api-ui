@@ -35,5 +35,11 @@
     "en": "English",
     "es": "Spanish",
     "fr": "French"
+  },
+  "nav": {
+    "home": "Home",
+    "docs": "Documentation",
+    "contact": "Contact",
+    "pricing": "Pricing"
   }
 }

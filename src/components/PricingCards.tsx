@@ -55,7 +55,7 @@ export const PricingCards: React.FC = () => {
               </ul>
             </div>
 
-            <button className="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-8 rounded-md transition mt-auto">
+            <button className="bg-gray-800 text-white dark:bg-white dark:text-gray-900  hover:bg-gray-900 dark:hover:bg-gray-300 py-3 px-8 rounded-md transition-colors duration-300 mt-auto font-semibold">
               {t("pricing.button", "Choose Plan")}
             </button>
           </div>

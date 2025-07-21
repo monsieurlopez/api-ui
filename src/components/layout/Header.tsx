@@ -1,4 +1,5 @@
 import { DrawerComponent } from "../DrawerCompoent";
+import { Navigation } from "./Navigation";
 import {
   SignedIn,
   SignedOut,
@@ -6,12 +7,13 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <header className="container flex justify-between sticky top-0 z-100 dark:bg-gray-900 py-4">
       <div>
-        <h1 className="text-xl font-bold mx-2">Insiders Moves</h1>
+        <h1 className="text-xl font-bold mx-2">Insiders Trades</h1>
       </div>
+      <Navigation />
       <div className="flex items-center gap-4 mx-2 h-full">
         <DrawerComponent />
         <SignedOut>

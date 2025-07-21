@@ -40,5 +40,11 @@
     "en": "Inglés",
     "es": "Español",
     "fr": "Francés"
+  },
+  "nav": {
+    "home": "Inicio",
+    "docs": "Documentación",
+    "contact": "Contacto",
+    "pricing": "Precios"
   }
 }
