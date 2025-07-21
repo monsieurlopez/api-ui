@@ -8,7 +8,8 @@ export const DarkModeToggle = () => {
     <button
       aria-label="Toggle dark mode"
       onClick={toggleTheme}
-      className="p-1 rounded mx-1"
+      className="p-1 rounded mx-1 text-xl hover:scale-110 duration-300 ease-in-out"
+      title="Toggle dark mode"
     >
       {theme === "dark" ? (
         <SunFilled className="w-6 h-6 text-yellow-500" />
