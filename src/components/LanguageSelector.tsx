@@ -1,13 +1,11 @@
 import { useLanguage } from "../hooks/useLanguage";
+import { useTranslation } from "react-i18next";
 
-const languageOptions = [
-  { language: "English", code: "en" },
-  { language: "French", code: "fr" },
-  { language: "Spanish", code: "es" },
-];
+const languageOptions = [{ code: "en" }, { code: "fr" }, { code: "es" }];
 
 export const LanguageSelector = () => {
   const { language, setLanguage } = useLanguage();
+  const { t } = useTranslation();
 
   return (
     <select
@@ -16,9 +14,9 @@ export const LanguageSelector = () => {
       className="p-2 border rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200
         dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200 dark:focus:border-indigo-400 dark:focus:ring-indigo-700 min-w-24"
     >
-      {languageOptions.map(({ language, code }) => (
+      {languageOptions.map(({ code }) => (
         <option key={code} value={code}>
-          {language}
+          {t(`language.${code}`)}
         </option>
       ))}
     </select>

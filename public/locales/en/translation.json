@@ -30,5 +30,10 @@
     "title": "Settings",
     "theme": "Theme",
     "language": "Language"
+  },
+  "language": {
+    "en": "English",
+    "es": "Spanish",
+    "fr": "French"
   }
 }

@@ -35,5 +35,10 @@
     "title": "Paramètres",
     "theme": "Thème",
     "language": "Langue"
+  },
+  "language": {
+    "en": "Anglais",
+    "es": "Espagol",
+    "fr": "Français"
   }
 }

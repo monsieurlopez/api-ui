@@ -35,5 +35,10 @@
     "title": "Configuración",
     "theme": "Tema",
     "language": "Idioma"
+  },
+  "language": {
+    "en": "Inglés",
+    "es": "Español",
+    "fr": "Francés"
   }
 }
