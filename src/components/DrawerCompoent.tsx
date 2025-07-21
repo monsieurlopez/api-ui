@@ -5,12 +5,14 @@ import { DarkModeToggle } from "./DarkModeToogle";
 import { LanguageSelector } from "./LanguageSelector";
 import { useTheme } from "../context/useTheme";
 import { ToolFilled } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
 import "../assets/styles/Drawer.css";
 
 export const DrawerComponent: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [placement] = useState<DrawerProps["placement"]>("right");
   const { theme } = useTheme();
+  const { t } = useTranslation();
 
   const showDrawer = () => setOpen(true);
   const onClose = () => setOpen(false);
@@ -34,7 +36,7 @@ export const DrawerComponent: React.FC = () => {
         }}
       >
         <Drawer
-          title="Configuración"
+          title={t("settings.title", "Settings")}
           placement={placement}
           closable={false}
           onClose={onClose}
@@ -44,13 +46,17 @@ export const DrawerComponent: React.FC = () => {
           <table className="w-full table-auto">
             <tbody>
               <tr className="h-14">
-                <td className="text-left font-medium text-lg">Tema</td>
+                <td className="text-left font-medium text-lg">
+                  {t("settings.theme", "Mode")}
+                </td>
                 <td className="text-right">
                   <DarkModeToggle />
                 </td>
               </tr>
               <tr className="h-14">
-                <td className="text-left font-medium text-lg">Idioma</td>
+                <td className="text-left font-medium text-lg">
+                  {t("settings.language", "Language")}
+                </td>
                 <td className="text-right">
                   <LanguageSelector />
                 </td>

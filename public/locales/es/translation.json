@@ -30,5 +30,10 @@
       }
     ],
     "button": "Elegir"
+  },
+  "settings": {
+    "title": "Configuración",
+    "theme": "Tema",
+    "language": "Idioma"
   }
 }
