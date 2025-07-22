@@ -1,5 +1,4 @@
 import type React from "react";
-//import { useTranslation } from "react-i18next";
 import { Button, Form, Input, Checkbox } from "antd";
 
 type ContactFormValues = {
@@ -12,13 +11,6 @@ type ContactFormValues = {
 };
 
 export const FormContact: React.FC = () => {
-  //const { t } = useTranslation();
-
-  const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-  };
-
   const validateMessages = {
     required: "${label} is required!",
     types: {
@@ -31,35 +23,38 @@ export const FormContact: React.FC = () => {
   };
 
   return (
-    <div className="container w-full flex flex-col items-center mx-auto">
+    <div className="w-full flex justify-center px-4 sm:px-6">
       <Form
-        {...layout}
-        name="nest-messages"
+        layout="vertical"
+        name="contact-form"
         onFinish={onFinish}
-        style={{ maxWidth: 600 }}
         validateMessages={validateMessages}
+        className="w-full max-w-2xl"
       >
         <Form.Item
           name={["user", "name"]}
           label="Name"
           rules={[{ required: true }]}
         >
-          <Input />
+          <Input size="middle" />
         </Form.Item>
+
         <Form.Item
           name={["user", "email"]}
           label="Email"
           rules={[{ type: "email", required: true }]}
         >
-          <Input />
+          <Input size="middle" />
         </Form.Item>
+
         <Form.Item
           name={["user", "Message"]}
           label="Message"
           rules={[{ required: true }]}
         >
-          <Input.TextArea />
+          <Input.TextArea rows={5} />
         </Form.Item>
+
         <Form.Item
           name="agreement"
           valuePropName="checked"
@@ -71,14 +66,14 @@ export const FormContact: React.FC = () => {
                   : Promise.reject(new Error("Should accept agreement")),
             },
           ]}
-          {...layout}
         >
           <Checkbox>
             I have read the <a href="#">agreement</a>
           </Checkbox>
         </Form.Item>
-        <Form.Item label={null}>
-          <Button type="primary" htmlType="submit">
+
+        <Form.Item>
+          <Button type="primary" htmlType="submit" size="large" block>
             Submit
           </Button>
         </Form.Item>
