@@ -23,7 +23,7 @@ export const FormContact: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex justify-center px-4 sm:px-6">
+    <div className="w-full flex justify-center px-4">
       <Form
         layout="vertical"
         name="contact-form"
@@ -33,26 +33,39 @@ export const FormContact: React.FC = () => {
       >
         <Form.Item
           name={["user", "name"]}
-          label="Name"
+          label={<span className="text-gray-900 dark:text-gray-100">Name</span>}
           rules={[{ required: true }]}
         >
-          <Input size="middle" />
+          <Input
+            size="middle"
+            className="bg-white dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 border-gray-300 dark:border-gray-600"
+          />
         </Form.Item>
 
         <Form.Item
           name={["user", "email"]}
-          label="Email"
+          label={
+            <span className="text-gray-900 dark:text-gray-100">Email</span>
+          }
           rules={[{ type: "email", required: true }]}
         >
-          <Input size="middle" />
+          <Input
+            size="middle"
+            className="bg-white dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 border-gray-300 dark:border-gray-600"
+          />
         </Form.Item>
 
         <Form.Item
           name={["user", "Message"]}
-          label="Message"
+          label={
+            <span className="text-gray-900 dark:text-gray-100">Message</span>
+          }
           rules={[{ required: true }]}
         >
-          <Input.TextArea rows={5} />
+          <Input.TextArea
+            rows={5}
+            className="bg-white dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 border-gray-300 dark:border-gray-600"
+          />
         </Form.Item>
 
         <Form.Item
@@ -68,7 +81,12 @@ export const FormContact: React.FC = () => {
           ]}
         >
           <Checkbox>
-            I have read the <a href="#">agreement</a>
+            <span className="text-gray-900 dark:text-gray-100">
+              I have read the{" "}
+              <a href="#" className="underline">
+                agreement
+              </a>
+            </span>
           </Checkbox>
         </Form.Item>
 
