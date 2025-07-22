@@ -28,11 +28,7 @@ export const PricingCards: React.FC = () => {
   }) as PricingCard[];
 
   return (
-    <section className="container mt-5 px-4 w-full mx-auto">
-      <h1 className="text-4xl font-extrabold mb-12 text-center">
-        {t("pricing.title")}
-      </h1>
-
+    <section className="container mt-4 px-4 w-full mx-auto">
       <div className="flex flex-wrap gap-5 justify-center mx-auto items-stretch">
         {pricingCards.map(({ name, price, features }, idx) => (
           <div
