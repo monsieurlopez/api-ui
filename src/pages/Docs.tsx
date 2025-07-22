@@ -6,7 +6,7 @@ export const Docs: React.FC = () => {
 
   return (
     <section className="container text-center w-full flex flex-col">
-      <h1 className="text-4xl font-extrabold mb-12 text-center mt-6">
+      <h1 className="text-4xl font-extrabold mb-12 text-center lg:mt-10 mt-4">
         {t("pages.docs")}
       </h1>
     </section>
