@@ -65,6 +65,11 @@ export const FormContact: React.FC = () => {
           rules={[
             {
               type: "email",
+              message: t("contact.validation.email", {
+                label: t("contact.email"),
+              }),
+            },
+            {
               required: true,
               message: t("contact.validation.required", {
                 label: t("contact.email"),
