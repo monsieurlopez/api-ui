@@ -1,5 +1,6 @@
 import type React from "react";
 import { Button, Form, Input, Checkbox } from "antd";
+import { useTranslation } from "react-i18next";
 
 type ContactFormValues = {
   user: {
@@ -11,6 +12,7 @@ type ContactFormValues = {
 };
 
 export const FormContact: React.FC = () => {
+  const { t } = useTranslation();
   const validateMessages = {
     required: "${label} is required!",
     types: {
@@ -33,8 +35,19 @@ export const FormContact: React.FC = () => {
       >
         <Form.Item
           name={["user", "name"]}
-          label={<span className="text-gray-900 dark:text-gray-100">Name</span>}
-          rules={[{ required: true }]}
+          label={
+            <span className="text-gray-900 dark:text-gray-100">
+              {t("contact.name")}
+            </span>
+          }
+          rules={[
+            {
+              required: true,
+              message: t("contact.validation.required", {
+                label: t("contact.name"),
+              }),
+            },
+          ]}
         >
           <Input
             size="middle"
@@ -45,9 +58,19 @@ export const FormContact: React.FC = () => {
         <Form.Item
           name={["user", "email"]}
           label={
-            <span className="text-gray-900 dark:text-gray-100">Email</span>
+            <span className="text-gray-900 dark:text-gray-100">
+              {t("contact.email")}
+            </span>
           }
-          rules={[{ type: "email", required: true }]}
+          rules={[
+            {
+              type: "email",
+              required: true,
+              message: t("contact.validation.required", {
+                label: t("contact.email"),
+              }),
+            },
+          ]}
         >
           <Input
             size="middle"
@@ -58,9 +81,18 @@ export const FormContact: React.FC = () => {
         <Form.Item
           name={["user", "Message"]}
           label={
-            <span className="text-gray-900 dark:text-gray-100">Message</span>
+            <span className="text-gray-900 dark:text-gray-100">
+              {t("contact.message")}
+            </span>
           }
-          rules={[{ required: true }]}
+          rules={[
+            {
+              required: true,
+              message: t("contact.validation.required", {
+                label: t("contact.message"),
+              }),
+            },
+          ]}
         >
           <Input.TextArea
             rows={5}
