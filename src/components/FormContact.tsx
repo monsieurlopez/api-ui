@@ -113,20 +113,22 @@ export const FormContact: React.FC = () => {
               validator: (_, value) =>
                 value
                   ? Promise.resolve()
-                  : Promise.reject(new Error("Should accept agreement")),
+                  : Promise.reject(
+                      new Error(t("contact.validation.agreement_check"))
+                    ),
             },
           ]}
         >
           <Checkbox>
             <span className="text-gray-900 dark:text-gray-100">
-              I have read the{" "}
+              {t("contact.agreement")}
               <a
                 href="#"
                 className="underline"
                 target="_blank"
                 rel="noreferrer"
               >
-                agreement
+                {t("contact.agreement_link")}
               </a>
             </span>
           </Checkbox>
@@ -134,7 +136,7 @@ export const FormContact: React.FC = () => {
 
         <Form.Item>
           <Button type="primary" htmlType="submit" size="large" block>
-            Submit
+            {t("contact.submit")}
           </Button>
         </Form.Item>
       </Form>
