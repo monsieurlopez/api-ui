@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+/*import { useEffect, useState } from "react";
 import { DrawerComponent } from "../DrawerComponent";
 import { Navigation } from "./Navigation";
 import {
@@ -30,32 +30,6 @@ export const Header: React.FC = () => {
       <div>
         <h1 className="text-xl font-bold mx-2">Insiders Moves</h1>
       </div>
-
-      {isDesktop && <Navigation />}
-
-      <div className="flex items-center gap-4 mx-2">
-        {isDesktop ? (
-          <DrawerComponent />
-        ) : (
-          <>
-            <MenuOutlined
-              className="text-2xl cursor-pointer dark:text-white"
-              onClick={() => setDrawerOpen(true)}
-            />
-            <MobileDrawer
-              open={drawerOpen}
-              onClose={() => setDrawerOpen(false)}
-            />
-          </>
-        )}
-
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
-      </div>
     </header>
   );
-};
+};*/
