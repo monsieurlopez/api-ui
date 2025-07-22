@@ -4,7 +4,7 @@ import { Drawer, Space, ConfigProvider, theme as antdTheme, Grid } from "antd";
 import { DarkModeToggle } from "./DarkModeToogle";
 import { LanguageSelector } from "./LanguageSelector";
 import { useTheme } from "../context/useTheme";
-import { SettingFilled } from "@ant-design/icons";
+import { SettingFilled, CloseOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 import "../assets/styles/Drawer.css";
 
@@ -38,14 +38,21 @@ export const DrawerComponent: React.FC = () => {
         }}
       >
         <Drawer
-          title={t("settings.title", "Settings")}
-          placement={placement}
+          title={
+            <div className="flex justify-between items-center w-full">
+              <span>{t("settings.title", "Settings")}</span>
+              <CloseOutlined
+                style={{ fontSize: 20, cursor: "pointer", marginTop: 4 }}
+                onClick={onClose}
+              />
+            </div>
+          }
           closable={false}
+          placement={placement}
           onClose={onClose}
           open={open}
           key={placement}
           width={drawerWidth}
-          closeIcon={true}
         >
           <table className="w-full table-auto">
             <tbody>
