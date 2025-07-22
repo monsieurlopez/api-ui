@@ -46,5 +46,17 @@
     "docs": "Documentation",
     "contact": "Contact",
     "pricing": "Pricing"
+  },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "agreement": "I have read the <link> agreement </link>",
+    "agreement_link": "agreement",
+    "submit": "Submit",
+    "validation": {
+      "required": "{{label}} is required!",
+      "email": "{{label}} is not a valid email!"
+    }
   }
 }

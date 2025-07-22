@@ -83,7 +83,12 @@ export const FormContact: React.FC = () => {
           <Checkbox>
             <span className="text-gray-900 dark:text-gray-100">
               I have read the{" "}
-              <a href="#" className="underline">
+              <a
+                href="#"
+                className="underline"
+                target="_blank"
+                rel="noreferrer"
+              >
                 agreement
               </a>
             </span>
