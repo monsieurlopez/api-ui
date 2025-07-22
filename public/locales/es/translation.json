@@ -1,6 +1,11 @@
 {
+  "pages": {
+    "home": "Inicio",
+    "docs": "Documentación",
+    "contact": "Contacto",
+    "pricing": "Precios"
+  },
   "pricing": {
-    "title": "Precios",
     "cards": [
       {
         "name": "Básico",

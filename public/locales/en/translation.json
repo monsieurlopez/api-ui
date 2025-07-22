@@ -1,6 +1,11 @@
 {
+  "pages": {
+    "home": "Home",
+    "docs": "Documentation",
+    "contact": "Contact",
+    "pricing": "Pricing"
+  },
   "pricing": {
-    "title": "Pricing",
     "cards": [
       {
         "name": "Basic",
