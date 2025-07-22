@@ -52,11 +52,10 @@ export const MobileDrawer: React.FC<Props> = ({ open, onClose }) => {
               to={path}
               onClick={onClose}
               className={({ isActive }) =>
-                `text-base font-medium ${
-                  isActive
-                    ? "text-indigo-600 underline"
-                    : "text-gray-800 dark:text-gray-100"
-                }`
+                `relative text-base font-medium pl-3 transition-colors duration-300
+   text-gray-800 dark:text-gray-100
+   ${isActive ? "text-indigo-600 dark:text-indigo-400 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-indigo-600 dark:before:bg-indigo-400 rounded" : ""}
+  `
               }
             >
               {label}
