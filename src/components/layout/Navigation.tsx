@@ -18,7 +18,7 @@ export const Navigation: React.FC = () => {
   ];
 
   return (
-    <nav className="flex items-center gap-6 mx-2">
+    <nav className="flex items-center gap-2 mx-2">
       {links.map(({ path, label }) => (
         <NavLink
           key={path}
