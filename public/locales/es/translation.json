@@ -64,5 +64,8 @@
       "email": "¡{{label}} no es un correo válido!",
       "agreement_check": "Por favor, acepta el acuerdo"
     }
+  },
+  "menu": {
+    "title": "Menú"
   }
 }

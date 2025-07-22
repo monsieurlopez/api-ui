@@ -59,5 +59,8 @@
       "email": "{{label}} is not a valid email!",
       "agreement_check": "Please accept the agreement"
     }
+  },
+  "menu": {
+    "title": "Menu"
   }
 }

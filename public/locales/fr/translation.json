@@ -64,5 +64,8 @@
       "email": "{{label}} n'est pas un email valide !",
       "agreement_check": "Veuillez accepter le contrat"
     }
+  },
+  "menu": {
+    "title": "Menu"
   }
 }

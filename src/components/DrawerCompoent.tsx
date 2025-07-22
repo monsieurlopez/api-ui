@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { DrawerProps } from "antd";
-import { Drawer, Space, ConfigProvider, theme as antdTheme, Grid } from "antd";
+import { Drawer, Space, ConfigProvider, theme as antdTheme } from "antd";
 import { DarkModeToggle } from "./DarkModeToogle";
 import { LanguageSelector } from "./LanguageSelector";
 import { useTheme } from "../context/useTheme";
@@ -13,11 +13,9 @@ export const DrawerComponent: React.FC = () => {
   const [placement] = useState<DrawerProps["placement"]>("right");
   const { theme } = useTheme();
   const { t } = useTranslation();
-  const screens = Grid.useBreakpoint();
 
   const showDrawer = () => setOpen(true);
   const onClose = () => setOpen(false);
-  const drawerWidth = screens.xs ? 250 : 378;
 
   return (
     <>
@@ -39,7 +37,7 @@ export const DrawerComponent: React.FC = () => {
       >
         <Drawer
           title={
-            <div className="flex justify-between items-center w-full">
+            <div className="flex justify-between items-center w-full text-xl font-semibold">
               <span>{t("settings.title", "Settings")}</span>
               <CloseOutlined
                 style={{ fontSize: 20, cursor: "pointer", marginTop: 4 }}
@@ -52,7 +50,6 @@ export const DrawerComponent: React.FC = () => {
           onClose={onClose}
           open={open}
           key={placement}
-          width={drawerWidth}
         >
           <table className="w-full table-auto">
             <tbody>
