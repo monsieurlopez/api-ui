@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { DrawerComponent } from "../DrawerCompoent";
+import { DrawerComponent } from "../DrawerComponent";
 import { Navigation } from "./Navigation";
 import {
   SignedIn,

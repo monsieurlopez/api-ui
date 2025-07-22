@@ -24,11 +24,17 @@ export const Navigation: React.FC = () => {
           key={path}
           to={path}
           className={({ isActive }: { isActive: boolean }) =>
-            `text-md font-medium transition-colors ${
+            `relative text-md font-sans font-bold transition-colors duration-300 ease-in-out px-2 py-1
+            ${
               isActive
-                ? "text-indigo-600 dark:text-indigo-400 underline"
-                : "text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-white"
-            }`
+                ? "text-blue-600 dark:text-blue-400"
+                : "text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-white"
+            }
+            after:absolute after:left-0 after:bottom-0 after:h-[2px]
+            after:bg-blue-600 dark:after:bg-blue-400
+            after:transition-all after:duration-300
+            ${isActive ? "after:w-full" : "after:w-0"}
+            `
           }
         >
           {label}

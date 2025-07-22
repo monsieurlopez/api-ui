@@ -38,10 +38,8 @@ export const MobileDrawer: React.FC<Props> = ({ open, onClose }) => {
         open={open}
         width={250}
       >
-        <div className="flex justify-between items-center w-full text-xl font-semibold mb-6">
-          <span className="text-lg font-semibold">
-            {t("menu.title", "Menu")}
-          </span>
+        <div className="flex justify-between items-center w-full mb-6">
+          <span className="text-xl font-bold">{t("menu.title", "Menu")}</span>
           <CloseOutlined onClick={onClose} className="cursor-pointer text-lg" />
         </div>
 
@@ -52,10 +50,10 @@ export const MobileDrawer: React.FC<Props> = ({ open, onClose }) => {
               to={path}
               onClick={onClose}
               className={({ isActive }) =>
-                `relative text-base font-medium pl-3 transition-colors duration-300
-   text-gray-800 dark:text-gray-100
-   ${isActive ? "text-indigo-600 dark:text-indigo-400 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-indigo-600 dark:before:bg-indigo-400 rounded" : ""}
-  `
+                `relative text-base font-bold pl-3 transition-colors duration-300
+              text-gray-800 dark:text-gray-100
+              ${isActive ? "text-indigo-600 dark:text-indigo-400 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-1 before:bg-indigo-600 dark:before:bg-indigo-400 rounded" : ""}
+              `
               }
             >
               {label}
