@@ -11,6 +11,7 @@ import {
 import { SignedIn, UserButton } from "@clerk/clerk-react";
 import type { MenuProps } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTheme } from "../../context/useTheme";
 
 const { Sider } = Layout;
 
@@ -31,6 +32,7 @@ type Props = {
 export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme } = useTheme();
 
   const handleMenuClick: MenuProps["onClick"] = (e) => {
     switch (e.key) {
@@ -66,7 +68,7 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
     >
       <div className="demo-logo-vertical" />
       <Menu
-        theme="dark"
+        theme={theme === "dark" ? "dark" : "light"}
         mode="inline"
         selectedKeys={[keyMap[location.pathname] || "1"]}
         onClick={handleMenuClick}

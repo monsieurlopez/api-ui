@@ -41,7 +41,7 @@ export const HeaderBar = ({ collapsed, toggleCollapsed, bg }: Props) => {
         type="text"
         icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         onClick={toggleCollapsed}
-        style={{ fontSize: "18px" }}
+        style={{ fontSize: "20px" }}
       />
       <h1 className="text-4xl font-extrabold">{title}</h1>
       <div className=" w-11">
