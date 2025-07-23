@@ -63,7 +63,13 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
       collapsedWidth="0"
       collapsed={collapsed}
       onCollapse={onCollapse}
-      style={{ height: "100vh", position: "sticky", top: 0, overflow: "auto" }}
+      style={{
+        height: "100vh",
+        position: "sticky",
+        top: 0,
+        overflow: "auto",
+        backgroundColor: theme === "dark" ? "#001529" : "#fff",
+      }}
       trigger={null}
     >
       <div className="demo-logo-vertical" />

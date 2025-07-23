@@ -1,23 +1,24 @@
 import { Layout } from "antd";
 import { Routes, Route } from "react-router-dom";
 import { Pricing, Home, Contact, Docs, Account, Api } from "../../pages/pages";
+import { useTheme } from "../../context/useTheme.ts";
 
 const { Content } = Layout;
 
-type Props = {
-  bg: string;
-  radius: number;
-};
-
-export const MainContent = ({ bg, radius }: Props) => {
+export const MainContent: React.FC = () => {
+  const { theme } = useTheme();
   return (
-    <Content style={{ margin: "24px 16px 0" }}>
+    <Content
+      style={{
+        backgroundColor: theme === "dark" ? "#001529" : "#fff",
+        borderLeft: "1px solid #f0f0f0",
+      }}
+    >
       <div
         style={{
           padding: 24,
           minHeight: 360,
-          background: bg,
-          borderRadius: radius,
+          backgroundColor: theme === "dark" ? "#001529" : "#fff",
         }}
       >
         <Routes>

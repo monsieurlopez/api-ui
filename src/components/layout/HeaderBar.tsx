@@ -3,18 +3,19 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { SignedOut, SignInButton } from "@clerk/clerk-react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
+import { useTheme } from "../../context/useTheme";
 
 const { Header } = Layout;
 
 type Props = {
   collapsed: boolean;
   toggleCollapsed: () => void;
-  bg: string;
 };
 
-export const HeaderBar = ({ collapsed, toggleCollapsed, bg }: Props) => {
+export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
   const { t } = useTranslation();
   const location = useLocation();
+  const { theme } = useTheme();
 
   const routeTitleMap: Record<string, string> = {
     "/": "pages.home",
@@ -31,9 +32,10 @@ export const HeaderBar = ({ collapsed, toggleCollapsed, bg }: Props) => {
     <Header
       style={{
         padding: "0 16px",
-        background: bg,
+        backgroundColor: theme === "dark" ? "#001529" : "#fff",
         display: "flex",
         alignItems: "center",
+        borderLeft: "1px solid #f0f0f0",
       }}
       className="flex justify-between"
     >
