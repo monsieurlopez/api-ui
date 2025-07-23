@@ -1,6 +1,6 @@
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 //import { Header } from "./components/layout/Header";
-import { Pricing, Home, Contact, Docs } from "./pages/pages";
+import { Pricing, Home, Contact, Docs, Account } from "./pages/pages";
 import { useState } from "react";
 import type { MenuProps } from "antd";
 import { SignedIn, UserButton } from "@clerk/clerk-react";
@@ -51,8 +51,11 @@ const App: React.FC = () => {
       case "4":
         navigate("/pricing");
         break;
-      case "5":
-        navigate("/settings");
+      case "6":
+        navigate("/settings/api");
+        break;
+      case "7":
+        navigate("/settings/account");
         break;
     }
   };
@@ -62,7 +65,8 @@ const App: React.FC = () => {
     "/docs": "2",
     "/contact": "3",
     "/pricing": "4",
-    "/settings": "5",
+    "/settings/api": "6",
+    "/settings/account": "7",
   };
 
   return (
@@ -125,6 +129,7 @@ const App: React.FC = () => {
             <Route path="/docs" element={<Docs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/settings/account" element={<Account />} />
           </Routes>
         </Content>
       </Layout>
