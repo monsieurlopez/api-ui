@@ -1,43 +1,34 @@
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
-//import { Header } from "./components/layout/Header";
-import { Pricing, Home, Contact, Docs, Account } from "./pages/pages";
 import { useState } from "react";
-import type { MenuProps } from "antd";
-import { SignedIn, UserButton } from "@clerk/clerk-react";
-
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Layout, Menu, theme, Button } from "antd";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  ToolOutlined,
   HomeOutlined,
   FileTextOutlined,
   MailOutlined,
   DollarOutlined,
+  ToolOutlined,
   SettingOutlined,
   SwapOutlined,
 } from "@ant-design/icons";
-import { Button, Layout, Menu } from "antd";
+import { SignedIn, UserButton } from "@clerk/clerk-react";
+
+import { Pricing, Home, Contact, Docs, Account } from "./pages/pages";
 
 const { Header, Sider, Content } = Layout;
 
-const siderStyle: React.CSSProperties = {
-  overflow: "auto",
-  height: "100vh",
-  position: "sticky",
-  insetInlineStart: 0,
-  top: 0,
-  bottom: 0,
-  scrollbarWidth: "thin",
-  scrollbarGutter: "stable",
-};
-
 const App: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleMenuClick: MenuProps["onClick"] = (e) => {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const handleMenuClick = (e: any) => {
     switch (e.key) {
       case "1":
         navigate("/");
@@ -70,20 +61,25 @@ const App: React.FC = () => {
   };
 
   return (
-    <Layout hasSider>
+    <Layout>
       <Sider
-        trigger={null}
+        breakpoint="lg"
+        collapsedWidth="0"
         collapsible
-        width={200}
         collapsed={collapsed}
-        style={siderStyle}
-        className="h-[100vh] bg-white text-black dark:bg-gray-900 dark:text-white mx-auto flex flex-col items-center overflow-auto"
+        onCollapse={(val) => setCollapsed(val)}
+        style={{
+          height: "100vh",
+          position: "sticky",
+          top: 0,
+          overflow: "auto",
+        }}
+        trigger={null}
       >
         <div className="demo-logo-vertical" />
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
           selectedKeys={[keyMap[location.pathname] || "1"]}
           onClick={handleMenuClick}
           items={[
@@ -108,29 +104,39 @@ const App: React.FC = () => {
           </SignedIn>
         </div>
       </Sider>
-
       <Layout className="bg-white dark:bg-gray-900 text-black dark:text-white">
-        <Header className="p-0 bg-white dark:bg-gray-900">
+        <Header
+          style={{
+            padding: "0 16px",
+            background: colorBgContainer,
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           <Button
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: "16px",
-              width: 64,
-              height: 64,
-            }}
+            style={{ fontSize: "18px" }}
           />
         </Header>
-
-        <Content className="m-6 p-6 min-h-[280px] rounded-lg bg-white dark:bg-gray-900 text-black dark:text-white">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/docs" element={<Docs />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/settings/account" element={<Account />} />
-          </Routes>
+        <Content style={{ margin: "24px 16px 0" }}>
+          <div
+            style={{
+              padding: 24,
+              minHeight: 360,
+              background: colorBgContainer,
+              borderRadius: borderRadiusLG,
+            }}
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/docs" element={<Docs />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/settings/account" element={<Account />} />
+            </Routes>
+          </div>
         </Content>
       </Layout>
     </Layout>
