@@ -1,14 +1,10 @@
 import type React from "react";
-import { useTranslation } from "react-i18next";
+//import { useTranslation } from "react-i18next";
 
 export const Docs: React.FC = () => {
-  const { t } = useTranslation();
+  //const { t } = useTranslation();
 
   return (
-    <section className="container text-center w-full flex flex-col">
-      <h1 className="text-4xl font-extrabold mb-12 text-center lg:mt-10 mt-4">
-        {t("pages.docs")}
-      </h1>
-    </section>
+    <section className="container text-center w-full flex flex-col"></section>
   );
 };

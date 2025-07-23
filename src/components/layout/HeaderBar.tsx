@@ -2,6 +2,7 @@ import { Layout, Button } from "antd";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { SignedOut, SignInButton } from "@clerk/clerk-react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 
 const { Header } = Layout;
 
@@ -13,6 +14,19 @@ type Props = {
 
 export const HeaderBar = ({ collapsed, toggleCollapsed, bg }: Props) => {
   const { t } = useTranslation();
+  const location = useLocation();
+
+  const routeTitleMap: Record<string, string> = {
+    "/": "pages.home",
+    "/docs": "pages.docs",
+    "/contact": "pages.contact",
+    "/pricing": "pages.pricing",
+    "/settings/account": "pages.settings.account",
+    "/settings/api": "pages.settings.api",
+  };
+
+  const titleKey = routeTitleMap[location.pathname];
+  const title = titleKey ? t(titleKey) : "";
   return (
     <Header
       style={{
@@ -29,10 +43,8 @@ export const HeaderBar = ({ collapsed, toggleCollapsed, bg }: Props) => {
         onClick={toggleCollapsed}
         style={{ fontSize: "18px" }}
       />
-      <h1 className="text-4xl font-extrabold mb-12 text-center lg:mt-10 mt-4">
-        {t("pages.pricing")}
-      </h1>
-      <div className="align-right w-15">
+      <h1 className="text-4xl font-extrabold">{title}</h1>
+      <div className=" w-11">
         <SignedOut>
           <SignInButton />
         </SignedOut>
