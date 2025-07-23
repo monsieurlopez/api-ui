@@ -36,8 +36,12 @@ export const PricingCards: React.FC = () => {
             className="bg-gray-100 dark:bg-gray-800 rounded-lg p-8 shadow-md max-w-[400px] w-full text-center flex flex-col"
           >
             <div className="flex-grow flex flex-col">
-              <h2 className="text-2xl font-semibold mb-6">{name}</h2>
-              <p className="text-4xl font-bold mb-8">{price}</p>
+              <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100">
+                {name}
+              </h2>
+              <p className="text-4xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+                {price}
+              </p>
               <ul className="mb-8 space-y-4 text-gray-700 dark:text-gray-300">
                 {features.map((feature, i) => (
                   <li

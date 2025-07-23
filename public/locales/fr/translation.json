@@ -59,13 +59,10 @@
     "name": "Nom",
     "email": "Email",
     "message": "Message",
-    "agreement": "J'ai lu le ",
-    "agreement_link": "contrat",
     "submit": "Envoyer",
     "validation": {
       "required": "{{label}} est requis !",
-      "email": "{{label}} n'est pas un email valide !",
-      "agreement_check": "Veuillez accepter le contrat"
+      "email": "{{label}} n'est pas un email valide !"
     }
   },
   "menu": {

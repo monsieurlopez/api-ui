@@ -7,7 +7,7 @@ export const Account: React.FC = () => {
 
   return (
     <section className="container text-center w-full flex flex-col mx-auto">
-      <h2 className="text-3xl font-bold mb-12 text-center lg:mt-10 mt-3">
+      <h2 className="text-3xl font-bold mb-12 text-center lg:mt-10 mt-3 text-gray-900 dark:text-gray-100">
         {t("pages.account")}
       </h2>
       <SettingsAccount />

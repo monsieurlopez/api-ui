@@ -23,7 +23,7 @@ export const SettingsAccount: React.FC = () => {
         <table className="w-full table-auto">
           <tbody>
             <tr className="h-14">
-              <td className="text-left font-medium text-lg">
+              <td className="text-left font-medium text-lg text-gray-900 dark:text-gray-100">
                 {t("settings.theme", "Mode")}
               </td>
               <td className="text-right">
@@ -31,7 +31,7 @@ export const SettingsAccount: React.FC = () => {
               </td>
             </tr>
             <tr className="h-14">
-              <td className="text-left font-medium text-lg">
+              <td className="text-left font-medium text-lg text-gray-900 dark:text-gray-100">
                 {t("settings.language", "Language")}
               </td>
               <td className="text-right">

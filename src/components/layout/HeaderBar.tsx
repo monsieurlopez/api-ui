@@ -45,7 +45,9 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
         onClick={toggleCollapsed}
         style={{ fontSize: "20px" }}
       />
-      <h1 className="text-4xl font-extrabold">{title}</h1>
+      <h1 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100">
+        {title}
+      </h1>
       <div className=" w-11">
         <SignedOut>
           <SignInButton />

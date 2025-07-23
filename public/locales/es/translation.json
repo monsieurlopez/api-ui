@@ -59,13 +59,10 @@
     "name": "Nombre",
     "email": "Correo electrónico",
     "message": "Mensaje",
-    "agreement": "He leído el ",
-    "agreement_link": "acuerdo",
     "submit": "Enviar",
     "validation": {
       "required": "¡{{label}} es obligatorio!",
-      "email": "¡{{label}} no es un correo válido!",
-      "agreement_check": "Por favor, acepta el acuerdo"
+      "email": "¡{{label}} no es un correo válido!"
     }
   },
   "menu": {

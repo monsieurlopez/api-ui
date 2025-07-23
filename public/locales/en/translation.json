@@ -54,13 +54,10 @@
     "name": "Name",
     "email": "Email",
     "message": "Message",
-    "agreement": "I have read the ",
-    "agreement_link": "agreement",
     "submit": "Submit",
     "validation": {
       "required": "{{label}} is required!",
-      "email": "{{label}} is not a valid email!",
-      "agreement_check": "Please accept the agreement"
+      "email": "{{label}} is not a valid email!"
     }
   },
   "menu": {

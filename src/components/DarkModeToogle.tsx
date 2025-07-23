@@ -8,7 +8,7 @@ export const DarkModeToggle = () => {
     <button
       aria-label="Toggle dark mode"
       onClick={toggleTheme}
-      className="p-1 rounded mx-1 text-xl hover:scale-110 duration-300 ease-in-out"
+      className="p-1 rounded mx-1 text-xl hover:scale-110 duration-300 ease-in-out text-black dark:text-white"
       title="Toggle dark mode"
     >
       {theme === "dark" ? (

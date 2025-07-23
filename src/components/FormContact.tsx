@@ -1,5 +1,5 @@
 import type React from "react";
-import { Button, Form, Input, Checkbox } from "antd";
+import { Button, Form, Input } from "antd";
 import { useTranslation } from "react-i18next";
 
 type ContactFormValues = {
@@ -103,35 +103,6 @@ export const FormContact: React.FC = () => {
             rows={5}
             className="bg-white dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 border-gray-300 dark:border-gray-600"
           />
-        </Form.Item>
-
-        <Form.Item
-          name="agreement"
-          valuePropName="checked"
-          rules={[
-            {
-              validator: (_, value) =>
-                value
-                  ? Promise.resolve()
-                  : Promise.reject(
-                      new Error(t("contact.validation.agreement_check"))
-                    ),
-            },
-          ]}
-        >
-          <Checkbox>
-            <span className="text-gray-900 dark:text-gray-100">
-              {t("contact.agreement")}
-              <a
-                href="#"
-                className="underline"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {t("contact.agreement_link")}
-              </a>
-            </span>
-          </Checkbox>
         </Form.Item>
 
         <Form.Item>
