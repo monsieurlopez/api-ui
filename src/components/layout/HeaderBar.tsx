@@ -21,8 +21,8 @@ export const HeaderBar = ({ collapsed, toggleCollapsed, bg }: Props) => {
     "/docs": "pages.docs",
     "/contact": "pages.contact",
     "/pricing": "pages.pricing",
-    "/settings/account": "pages.settings.account",
-    "/settings/api": "pages.settings.api",
+    "/settings/account": "pages.settings",
+    "/settings/api": "pages.settings",
   };
 
   const titleKey = routeTitleMap[location.pathname];

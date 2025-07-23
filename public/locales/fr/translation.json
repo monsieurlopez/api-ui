@@ -3,7 +3,10 @@
     "home": "Accueil",
     "docs": "Documentation",
     "contact": "Contact",
-    "pricing": "Tarifs"
+    "pricing": "Tarifs",
+    "settings": "Paramètres",
+    "api": "API",
+    "account": "Compte"
   },
   "pricing": {
     "cards": [
