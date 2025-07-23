@@ -62,5 +62,9 @@
   },
   "menu": {
     "title": "Menu"
+  },
+  "header": {
+    "signin": "Sign in",
+    "signout": "Sign out"
   }
 }

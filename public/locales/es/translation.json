@@ -67,5 +67,9 @@
   },
   "menu": {
     "title": "Menú"
+  },
+  "header": {
+    "signin": "Iniciar Sesión",
+    "signout": "Cerrar Sesión"
   }
 }
