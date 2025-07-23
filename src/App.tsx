@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import type { MenuProps } from "antd";
 import { Layout, Menu, theme, Button } from "antd";
 import {
   MenuFoldOutlined,
@@ -28,7 +29,7 @@ const App: React.FC = () => {
 
   const [collapsed, setCollapsed] = useState(false);
 
-  const handleMenuClick = (e: any) => {
+  const handleMenuClick: MenuProps["onClick"] = (e) => {
     switch (e.key) {
       case "1":
         navigate("/");
@@ -65,7 +66,6 @@ const App: React.FC = () => {
       <Sider
         breakpoint="lg"
         collapsedWidth="0"
-        collapsible
         collapsed={collapsed}
         onCollapse={(val) => setCollapsed(val)}
         style={{
