@@ -1,6 +1,6 @@
 import { Layout } from "antd";
 import { Routes, Route } from "react-router-dom";
-import { Pricing, Home, Contact, Docs, Account } from "../../pages/pages";
+import { Pricing, Home, Contact, Docs, Account, Api } from "../../pages/pages";
 
 const { Content } = Layout;
 
@@ -26,6 +26,7 @@ export const MainContent = ({ bg, radius }: Props) => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/settings/account" element={<Account />} />
+          <Route path="/settings/api" element={<Api />} />
         </Routes>
       </div>
     </Content>
