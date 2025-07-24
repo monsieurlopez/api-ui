@@ -38,6 +38,8 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
       style={{
         backgroundColor: theme === "dark" ? "#001529" : "#fff",
         borderLeft: "1px solid #f0f0f0",
+        margin: 0,
+        padding: 0,
       }}
       className="flex justify-between items-end"
     >

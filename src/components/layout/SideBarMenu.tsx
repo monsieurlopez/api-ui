@@ -60,19 +60,23 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
   return (
     <Sider
       breakpoint="lg"
-      collapsedWidth="0"
+      //collapsedWidth="0"
       collapsed={collapsed}
+      collapsible
       onCollapse={onCollapse}
+      //trigger={null}
       style={{
         height: "100vh",
         position: "sticky",
         top: 0,
-        overflow: "auto",
+        overflow: "hidden",
         backgroundColor: theme === "dark" ? "#001529" : "#fff",
       }}
-      trigger={null}
     >
-      <div className="demo-logo-vertical" />
+      <div className="demo-logo-vertical p-4 flex justify-center items-center">
+        <img src="/vite.svg" alt="Logo Vite" className="h-8 w-auto" />
+      </div>
+
       <Menu
         theme={theme === "dark" ? "dark" : "light"}
         mode="inline"
@@ -94,9 +98,11 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
           },
         ]}
       />
-      <div className="absolute bottom-2 left-7">
+      <div
+        className={`absolute ${collapsed ? "bottom-13" : "bottom-15"} ${collapsed ? "left-7" : "left-10"}`}
+      >
         <SignedIn>
-          <UserButton showName />
+          <UserButton showName={!collapsed} />
         </SignedIn>
       </div>
     </Sider>

@@ -1,9 +1,0 @@
-.button-drawer {
-  font-size: 24px;
-  padding-top: 4px;
-}
-
-.button-drawer:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
-}
