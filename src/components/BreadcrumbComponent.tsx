@@ -11,18 +11,22 @@ import {
   SwapOutlined,
 } from "@ant-design/icons";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const routeMap: Record<
   string,
-  { label: string; icon?: React.ReactNode; path?: string }
+  { i18nKey: string; icon?: React.ReactNode; path?: string }
 > = {
-  "/": { label: "Home", icon: <HomeOutlined /> },
-  "/docs": { label: "Documentation", icon: <FileTextOutlined /> },
-  "/contact": { label: "Contact", icon: <MailOutlined /> },
-  "/pricing": { label: "Pricing", icon: <DollarOutlined /> },
-  "/settings": { label: "Settings", icon: <SettingOutlined /> },
-  "/settings/account": { label: "Account", icon: <UserOutlined /> },
-  "/settings/api": { label: "API", icon: <SwapOutlined /> },
+  "/": { i18nKey: "pages.home", icon: <HomeOutlined /> },
+  "/docs": { i18nKey: "pages.docs", icon: <FileTextOutlined /> },
+  "/contact": { i18nKey: "pages.contact", icon: <MailOutlined /> },
+  "/pricing": { i18nKey: "pages.pricing", icon: <DollarOutlined /> },
+  "/settings": { i18nKey: "pages.settings", icon: <SettingOutlined /> },
+  "/settings/account": {
+    i18nKey: "pages.account",
+    icon: <UserOutlined />,
+  },
+  "/settings/api": { i18nKey: "pages.api", icon: <SwapOutlined /> },
 };
 
 type BreadcrumbItem = { title: React.ReactNode };
@@ -32,6 +36,7 @@ export const BreadcrumbComponent: React.FC<BreadcrumbProps> = ({
   separator = "/",
 }) => {
   const location = useLocation();
+  const { t } = useTranslation();
 
   const pathSnippets = location.pathname.split("/").filter(Boolean);
 
@@ -50,7 +55,7 @@ export const BreadcrumbComponent: React.FC<BreadcrumbProps> = ({
       return {
         title: (
           <span className="flex items-center gap-1">
-            {route.icon} {route.label}
+            {route.icon} {t(route.i18nKey)}
           </span>
         ),
       };

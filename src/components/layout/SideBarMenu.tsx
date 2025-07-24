@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/useTheme";
 import { navItems } from "../../config/navigationConfig";
 import type { NavItem } from "../../config/navigationConfig";
+import { useTranslation } from "react-i18next";
 
 const { Sider } = Layout;
 const { useBreakpoint } = Grid;
@@ -22,6 +23,7 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
   const { theme } = useTheme();
   const [isMobile, setIsMobile] = useState(false);
   const screens = useBreakpoint();
+  const { t } = useTranslation();
 
   const findKeyByPath = (path: string): string | undefined => {
     for (const item of navItems) {
@@ -45,10 +47,10 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
   };
 
   const buildMenuItems = (items: NavItem[]): MenuProps["items"] => {
-    return items.map(({ key, icon, label, children }) => ({
+    return items.map(({ key, icon, i18nKey, label, children }) => ({
       key,
       icon,
-      label,
+      label: i18nKey ? t(i18nKey) : label || key,
       children: children ? buildMenuItems(children) : undefined,
     }));
   };
