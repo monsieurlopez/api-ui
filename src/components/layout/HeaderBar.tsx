@@ -1,5 +1,6 @@
 import { Layout, Button, Grid } from "antd";
 import { ButtonCollapseSider } from "../ButtonCollapseSider";
+import { BreadcrumbComponent } from "../BreadcrumbComponent";
 import {
   SignedIn,
   SignedOut,
@@ -44,6 +45,7 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
       }}
       className="flex justify-between items-center"
     >
+      <BreadcrumbComponent />
       <ButtonCollapseSider
         collapsed={collapsed}
         toggleCollapsed={toggleCollapsed}
