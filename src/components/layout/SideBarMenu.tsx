@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, Layout, Grid } from "antd";
+import { Menu, Layout } from "antd";
 import { ButtonCollapseSider } from "../ButtonCollapseSider";
 import { SignedIn, UserButton } from "@clerk/clerk-react";
 import type { MenuProps } from "antd";
@@ -10,7 +10,6 @@ import type { NavItem } from "../../config/navigationConfig";
 import { useTranslation } from "react-i18next";
 
 const { Sider } = Layout;
-const { useBreakpoint } = Grid;
 
 type Props = {
   collapsed: boolean;
@@ -22,7 +21,6 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
   const location = useLocation();
   const { theme } = useTheme();
   const [isMobile, setIsMobile] = useState(false);
-  const screens = useBreakpoint();
   const { t } = useTranslation();
 
   const findKeyByPath = (path: string): string | undefined => {
@@ -43,6 +41,9 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
     ].find((item) => item.key === e.key);
     if (target) {
       navigate(target.path);
+    }
+    if (isMobile) {
+      onCollapse(true);
     }
   };
 
