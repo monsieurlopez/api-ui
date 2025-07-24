@@ -52,7 +52,10 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
         iconSize={20}
         style={{ display: isMobile ? "flex" : "none" }}
       />
-      <BreadcrumbComponent style={{ display: isMobile ? "block" : "none" }} separator=">"/>
+      <BreadcrumbComponent
+        style={{ display: isMobile ? "block" : "none", cursor: "default" }}
+        separator=">"
+      />
       {/*<h1 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100">
         {title}
       </h1>*/}

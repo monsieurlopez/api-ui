@@ -1,6 +1,6 @@
 import React from "react";
 import { Breadcrumb } from "antd";
-import type BreadcrumbProps from "antd";
+import type { BreadcrumbProps } from "antd";
 import {
   HomeOutlined,
   SettingOutlined,
@@ -9,37 +9,22 @@ import {
   MailOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-// Mapa de rutas e iconos
 const routeMap: Record<
   string,
   { label: string; icon?: React.ReactNode; path?: string }
 > = {
-  "/": { label: "Home", icon: <HomeOutlined />, path: "/" },
-  "/docs": {
-    label: "Documentation",
-    icon: <FileTextOutlined />,
-    path: "/docs",
-  },
-  "/contact": { label: "Contact", icon: <MailOutlined />, path: "/contact" },
-  "/pricing": { label: "Pricing", icon: <DollarOutlined />, path: "/pricing" },
-  "/settings": {
-    label: "Settings",
-    icon: <SettingOutlined />,
-    path: "/settings",
-  },
-  "/settings/account": {
-    label: "Account",
-    icon: <UserOutlined />,
-    path: "/settings/account",
-  },
-  "/settings/api": {
-    label: "API",
-    icon: <UserOutlined />,
-    path: "/settings/api",
-  },
+  "/": { label: "Home", icon: <HomeOutlined /> },
+  "/docs": { label: "Documentation", icon: <FileTextOutlined /> },
+  "/contact": { label: "Contact", icon: <MailOutlined /> },
+  "/pricing": { label: "Pricing", icon: <DollarOutlined /> },
+  "/settings": { label: "Settings", icon: <SettingOutlined /> },
+  "/settings/account": { label: "Account", icon: <UserOutlined /> },
+  "/settings/api": { label: "API", icon: <UserOutlined /> },
 };
+
+type BreadcrumbItem = { title: React.ReactNode };
 
 export const BreadcrumbComponent: React.FC<BreadcrumbProps> = ({
   style,
@@ -49,40 +34,27 @@ export const BreadcrumbComponent: React.FC<BreadcrumbProps> = ({
 
   const pathSnippets = location.pathname.split("/").filter(Boolean);
 
-  const breadcrumbPaths = pathSnippets.map((_, index) => {
-    return "/" + pathSnippets.slice(0, index + 1).join("/");
-  });
+  const breadcrumbPaths =
+    pathSnippets.length === 0
+      ? ["/"]
+      : pathSnippets.map((_, index) => {
+          return "/" + pathSnippets.slice(0, index + 1).join("/");
+        });
 
-  // Siempre empezar con "/"
-  const fullPaths = ["/", ...breadcrumbPaths.filter((p) => p !== "/")];
-
-  const items = fullPaths
-    .map((path, index) => {
+  const items = breadcrumbPaths
+    .map((path): BreadcrumbItem | null => {
       const route = routeMap[path];
       if (!route) return null;
 
-      const isLast = index === fullPaths.length - 1;
-
       return {
-        title: isLast ? (
-          <>
-            {route.icon} <span className="ml-0">{route.label}</span>
-          </>
-        ) : (
-          <Link to={route.path || path}>
-            {route.icon} <span className="ml-0">{route.label}</span>
-          </Link>
+        title: (
+          <span className="flex items-center gap-1">
+            {route.icon} {route.label}
+          </span>
         ),
       };
     })
-    .filter((item): item is { title: React.ReactNode } => item !== null);
+    .filter((item): item is BreadcrumbItem => item !== null);
 
-  return (
-    <Breadcrumb
-      items={items}
-      separator=">"
-      style={style}
-      separator={separator}
-    />
-  );
+  return <Breadcrumb items={items} style={style} separator={separator} />;
 };
