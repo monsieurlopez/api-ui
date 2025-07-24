@@ -1,5 +1,5 @@
-import { Layout, Button } from "antd";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { Layout, Button, Grid } from "antd";
+import { ButtonCollapseSider } from "../ButtonCollapseSider";
 import {
   SignedIn,
   SignedOut,
@@ -7,7 +7,6 @@ import {
   SignOutButton,
 } from "@clerk/clerk-react";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
 import { useTheme } from "../../context/useTheme";
 
 const { Header } = Layout;
@@ -19,8 +18,10 @@ type Props = {
 
 export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
   const { t } = useTranslation();
-  const location = useLocation();
   const { theme } = useTheme();
+  const { useBreakpoint } = Grid;
+  const screens = useBreakpoint();
+  const isMobile = screens.xs && !screens.sm;
 
   const routeTitleMap: Record<string, string> = {
     "/": "pages.home",
@@ -41,23 +42,19 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
         margin: 0,
         padding: 0,
       }}
-      className="flex justify-between items-end"
+      className="flex justify-between items-center"
     >
-      <Button
-        type="text"
-        icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        onClick={toggleCollapsed}
-        style={{
-          fontSize: "20px",
-          color: theme === "dark" ? "#fff" : "#001529",
-          margin: 0,
-          padding: 0,
-        }}
+      <ButtonCollapseSider
+        collapsed={collapsed}
+        toggleCollapsed={toggleCollapsed}
+        theme={theme}
+        iconSize={20}
+        style={{ display: isMobile ? "flex" : "none", marginBottom: "0.5em" }}
       />
-      <h1 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100">
+      {/*<h1 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100">
         {title}
-      </h1>
-      <div className="flex pb-1">
+      </h1>*/}
+      <div className="absolute right-0 mr-2">
         <SignedOut>
           <SignInButton>
             <Button type={theme === "dark" ? "primary" : "default"}>

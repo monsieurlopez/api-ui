@@ -4,7 +4,6 @@ import { DarkModeToggle } from "./DarkModeToogle";
 import { LanguageSelector } from "./LanguageSelector";
 import { useTheme } from "../context/useTheme";
 import { useTranslation } from "react-i18next";
-import "../assets/styles/Drawer.css";
 
 export const SettingsAccount: React.FC = () => {
   const { theme } = useTheme();
