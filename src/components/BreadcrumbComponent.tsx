@@ -8,6 +8,7 @@ import {
   FileTextOutlined,
   MailOutlined,
   UserOutlined,
+  SwapOutlined,
 } from "@ant-design/icons";
 import { useLocation } from "react-router-dom";
 
@@ -21,7 +22,7 @@ const routeMap: Record<
   "/pricing": { label: "Pricing", icon: <DollarOutlined /> },
   "/settings": { label: "Settings", icon: <SettingOutlined /> },
   "/settings/account": { label: "Account", icon: <UserOutlined /> },
-  "/settings/api": { label: "API", icon: <UserOutlined /> },
+  "/settings/api": { label: "API", icon: <SwapOutlined /> },
 };
 
 type BreadcrumbItem = { title: React.ReactNode };

@@ -24,17 +24,6 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
   const screens = useBreakpoint();
   const isMobile = screens.xs && !screens.sm;
 
-  const routeTitleMap: Record<string, string> = {
-    "/": "pages.home",
-    "/docs": "pages.docs",
-    "/contact": "pages.contact",
-    "/pricing": "pages.pricing",
-    "/settings/account": "pages.settings",
-    "/settings/api": "pages.settings",
-  };
-
-  const titleKey = routeTitleMap[location.pathname];
-  const title = titleKey ? t(titleKey) : "";
   return (
     <Header
       style={{
@@ -52,14 +41,13 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
         iconSize={20}
         style={{ display: isMobile ? "flex" : "none" }}
       />
+
       <BreadcrumbComponent
         style={{ display: isMobile ? "block" : "none", cursor: "default" }}
         separator=">"
       />
-      {/*<h1 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100">
-        {title}
-      </h1>*/}
-      <div className="sm:absolute right-0 mr-2">
+
+      <div className="sm:absolute right-0 mr-2 flex items-center gap-2">
         <SignedOut>
           <SignInButton>
             <Button type={theme === "dark" ? "primary" : "default"}>

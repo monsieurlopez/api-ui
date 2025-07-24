@@ -1,31 +1,15 @@
 import { useState } from "react";
 import { Menu, Layout, Grid } from "antd";
-import {
-  HomeOutlined,
-  FileTextOutlined,
-  MailOutlined,
-  DollarOutlined,
-  ToolOutlined,
-  SettingOutlined,
-  SwapOutlined,
-} from "@ant-design/icons";
 import { ButtonCollapseSider } from "../ButtonCollapseSider";
 import { SignedIn, UserButton } from "@clerk/clerk-react";
 import type { MenuProps } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/useTheme";
+import { navItems } from "../../config/navigationConfig";
+import type { NavItem } from "../../config/navigationConfig";
 
 const { Sider } = Layout;
 const { useBreakpoint } = Grid;
-
-const keyMap: Record<string, string> = {
-  "/": "1",
-  "/docs": "2",
-  "/contact": "3",
-  "/pricing": "4",
-  "/settings/api": "6",
-  "/settings/account": "7",
-};
 
 type Props = {
   collapsed: boolean;
@@ -39,27 +23,34 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
   const [isMobile, setIsMobile] = useState(false);
   const screens = useBreakpoint();
 
-  const handleMenuClick: MenuProps["onClick"] = (e) => {
-    switch (e.key) {
-      case "1":
-        navigate("/");
-        break;
-      case "2":
-        navigate("/docs");
-        break;
-      case "3":
-        navigate("/contact");
-        break;
-      case "4":
-        navigate("/pricing");
-        break;
-      case "6":
-        navigate("/settings/api");
-        break;
-      case "7":
-        navigate("/settings/account");
-        break;
+  const findKeyByPath = (path: string): string | undefined => {
+    for (const item of navItems) {
+      if (item.path === path) return item.key;
+      if (item.children) {
+        const child = item.children.find((c) => c.path === path);
+        if (child) return child.key;
+      }
     }
+    return "1";
+  };
+
+  const handleMenuClick: MenuProps["onClick"] = (e) => {
+    const target = [
+      ...navItems,
+      ...navItems.flatMap((i) => i.children || []),
+    ].find((item) => item.key === e.key);
+    if (target) {
+      navigate(target.path);
+    }
+  };
+
+  const buildMenuItems = (items: NavItem[]): MenuProps["items"] => {
+    return items.map(({ key, icon, label, children }) => ({
+      key,
+      icon,
+      label,
+      children: children ? buildMenuItems(children) : undefined,
+    }));
   };
 
   return (
@@ -96,33 +87,19 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
       <Menu
         theme={theme === "dark" ? "dark" : "light"}
         mode="inline"
-        selectedKeys={[keyMap[location.pathname] || "1"]}
+        selectedKeys={[findKeyByPath(location.pathname)!]}
         onClick={handleMenuClick}
-        items={[
-          { key: "1", icon: <HomeOutlined />, label: "Home" },
-          { key: "2", icon: <FileTextOutlined />, label: "Documentation" },
-          { key: "3", icon: <MailOutlined />, label: "Contact" },
-          { key: "4", icon: <DollarOutlined />, label: "Pricing" },
-          {
-            key: "5",
-            icon: <ToolOutlined />,
-            label: "Settings",
-            children: [
-              { key: "6", icon: <SwapOutlined />, label: "API" },
-              { key: "7", icon: <SettingOutlined />, label: "Account" },
-            ],
-          },
-        ]}
+        items={buildMenuItems(navItems)}
       />
+
       <div
-        className={`absolute
-    ${
-      isMobile
-        ? "bottom-5 left-5"
-        : collapsed
-          ? "bottom-13 left-7"
-          : "bottom-15 left-10"
-    }`}
+        className={`absolute ${
+          isMobile
+            ? "bottom-5 left-5"
+            : collapsed
+              ? "bottom-13 left-7"
+              : "bottom-15 left-10"
+        }`}
       >
         <SignedIn>
           <UserButton showName={!collapsed} />
