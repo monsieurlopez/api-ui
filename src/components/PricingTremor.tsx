@@ -171,17 +171,18 @@ export const PricingTremor = () => {
                   </ul>
                   <div className="flex-grow" />
                 </div>
-                <a
-                  href={plan.buttonLink}
+                <button
+                  onClick={() => (window.location.href = plan.buttonLink)}
+                  type="button"
                   className={classNames(
                     plan.isRecommended
-                      ? "mt-6 inline-flex justify-center rounded-md border bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
-                      : "mt-6 inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 text-gray-700 hover:bg-gray-50",
-                    "whitespace-nowrap font-medium"
+                      ? "mt-6 inline-flex items-center justify-center rounded-md border border-indigo-600 bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700"
+                      : "mt-6 inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 hover:bg-gray-50",
+                    "whitespace-nowrap font-medium transition-colors"
                   )}
                 >
                   {plan.buttonText}
-                </a>
+                </button>
               </div>
             </div>
           );
