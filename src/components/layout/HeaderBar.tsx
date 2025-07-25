@@ -43,8 +43,12 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
       />
 
       <BreadcrumbComponent
-        style={{ display: isMobile ? "block" : "none", cursor: "default" }}
-        separator=">"
+        style={{
+          display: isMobile ? "block" : "none",
+          cursor: "default",
+          color: theme === "dark" ? "#fff" : "#001529",
+        }}
+        separator
       />
 
       <div className="sm:absolute right-0 mr-2 flex items-center gap-2">

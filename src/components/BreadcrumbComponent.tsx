@@ -31,10 +31,7 @@ const routeMap: Record<
 
 type BreadcrumbItem = { title: React.ReactNode };
 
-export const BreadcrumbComponent: React.FC<BreadcrumbProps> = ({
-  style,
-  separator = "/",
-}) => {
+export const BreadcrumbComponent: React.FC<BreadcrumbProps> = ({ style }) => {
   const location = useLocation();
   const { t } = useTranslation();
 
@@ -54,7 +51,7 @@ export const BreadcrumbComponent: React.FC<BreadcrumbProps> = ({
 
       return {
         title: (
-          <span className="flex items-center gap-1">
+          <span className="flex items-center gap-1 dark:text-gray-100 text-gray-600">
             {route.icon} {t(route.i18nKey)}
           </span>
         ),
@@ -62,5 +59,11 @@ export const BreadcrumbComponent: React.FC<BreadcrumbProps> = ({
     })
     .filter((item): item is BreadcrumbItem => item !== null);
 
-  return <Breadcrumb items={items} style={style} separator={separator} />;
+  const customSeparator = (
+    <span className="text-gray-600 dark:text-gray-100 text-semibold">
+      {">"}
+    </span>
+  );
+
+  return <Breadcrumb items={items} style={style} separator={customSeparator} />;
 };
