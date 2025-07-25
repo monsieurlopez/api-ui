@@ -76,7 +76,12 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
       }}
     >
       <div className="demo-logo-vertical p-4 flex justify-between items-center">
-        <img src="/vite.svg" alt="Logo Vite" className="h-8 w-auto m-sm-auto" />
+        <img
+          src="/vite.svg"
+          alt="Logo Vite"
+          className="h-8 w-8"
+          style={{ marginInline: collapsed ? "auto" : 3 }}
+        />
         <ButtonCollapseSider
           collapsed={collapsed}
           toggleCollapsed={() => onCollapse(!collapsed)}
