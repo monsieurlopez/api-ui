@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { RiCheckLine } from "react-icons/ri";
+import { useTranslation } from "react-i18next";
 
 type Frequency = {
   value: "monthly" | "annually";
@@ -35,7 +36,7 @@ function classNames(...classes: string[]) {
 const plans: Plan[] = [
   {
     name: "Free",
-    price: "$0",
+    price: "€0",
     description: "For small teams",
     features: ["Unlimited members", "5 workspaces", "Community Slack Support"],
     isEnterprise: false,
@@ -45,7 +46,7 @@ const plans: Plan[] = [
   },
   {
     name: "Starter",
-    price: { monthly: "$50", annually: "$490" },
+    price: { monthly: "€50", annually: "€490" },
     description: "For growing teams",
     features: ["Unlimited members", "10 workspaces", "Community Slack Support"],
     isEnterprise: false,
@@ -78,6 +79,8 @@ export const PricingCards = () => {
     setFrequency(selectedFrequency);
   };
 
+  const { t } = useTranslation();
+
   return (
     <section className="container mt-4 px-4 w-full mx-auto">
       <div className="flex flex-wrap gap-5 justify-center mx-auto items-stretch">
@@ -99,22 +102,22 @@ export const PricingCards = () => {
             >
               <div className="flex items-center justify-between gap-x-4">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  {plan.name}
+                  {t(`pricing.plans.${plan.name.toLowerCase()}.name`)}
                 </h3>
                 {plan.isRecommended && (
                   <span className="inline-flex items-center rounded-md border border-gray-300 bg-indigo-50 px-2 py-1 text-xs text-gray-800 dark:border-gray-600 dark:bg-indigo-600/10 dark:text-indigo-400 font-medium">
-                    Recommended
+                    {t("pricing.recommended")}
                   </span>
                 )}
               </div>
               <p className="mt-1 text-gray-600 dark:text-gray-300 text-left text-md">
-                {plan.description}
+                {t(`pricing.plans.${plan.name.toLowerCase()}.description`)}
               </p>
               <p className="mt-6 flex items-baseline gap-x-1 text-gray-900 dark:text-white font-semibold text-2xl">
                 {priceToShow}
                 {plan.isRecommended && (
                   <span className="text-base font-normal text-gray-500 dark:text-gray-400">
-                    {frequency.priceSuffix}
+                    {t(`pricing.frequencies.${frequency.value}`)}
                   </span>
                 )}
               </p>
@@ -145,7 +148,7 @@ export const PricingCards = () => {
                           onChange={() => handleFrequencyChange(option)}
                           className="sr-only"
                         />
-                        {option.label}
+                        {t(`pricing.frequencies.${option.value}`)}
                       </label>
                     ))}
                   </div>
@@ -155,7 +158,7 @@ export const PricingCards = () => {
               <div className="flex flex-col flex-grow justify-between mt-6">
                 <div className="flex flex-col flex-grow">
                   <p className="font-medium text-gray-700 dark:text-gray-200 text-left">
-                    Included:
+                    {t("pricing.included")}:
                   </p>
                   <ul className="mt-2 space-y-2 text-gray-700 dark:text-gray-300 flex flex-col">
                     {plan.features.map((feature) => (
@@ -180,7 +183,7 @@ export const PricingCards = () => {
                     "whitespace-nowrap font-medium transition-colors"
                   )}
                 >
-                  {plan.buttonText}
+                  {t(`pricing.plans.${plan.name.toLowerCase()}.button`)}
                 </button>
               </div>
             </div>

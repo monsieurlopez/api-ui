@@ -9,30 +9,46 @@
     "account": "Account"
   },
   "pricing": {
-    "cards": [
-      {
-        "name": "Basic",
-        "price": "$10",
-        "features": ["Feature A", "Feature B", "Feature C"]
-      },
-      {
-        "name": "Pro",
-        "price": "$30",
-        "features": ["Feature A", "Feature B", "Feature C", "Feature D"]
-      },
-      {
-        "name": "Enterprise",
-        "price": "Contact us",
+    "frequencies": {
+      "monthly": "Monthly",
+      "annually": "Annually"
+    },
+    "plans": {
+      "free": {
+        "name": "Free",
+        "description": "For small teams",
         "features": [
-          "Feature A",
-          "Feature B",
-          "Feature C",
-          "Feature D",
-          "Feature E"
-        ]
+          "Unlimited members",
+          "5 workspaces",
+          "Community Slack Support"
+        ],
+        "button": "Get started"
+      },
+      "starter": {
+        "name": "Starter",
+        "description": "For growing teams",
+        "features": [
+          "Unlimited members",
+          "10 workspaces",
+          "Community Slack Support"
+        ],
+        "button": "Get started"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "For custom needs",
+        "features": [
+          "Unlimited members",
+          "Unlimited workspaces",
+          "Priority Support",
+          "Single Sign-On (SSO)",
+          "90 days of history"
+        ],
+        "button": "Contact us"
       }
-    ],
-    "button": "Choose"
+    },
+    "recommended": "Recommended",
+    "included": "Included"
   },
   "settings": {
     "title": "Settings",

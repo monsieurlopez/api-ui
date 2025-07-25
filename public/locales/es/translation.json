@@ -9,35 +9,46 @@
     "account": "Cuenta"
   },
   "pricing": {
-    "cards": [
-      {
-        "name": "Básico",
-        "price": "$10",
-        "features": ["Característica A", "Característica B", "Característica C"]
-      },
-      {
-        "name": "Pro",
-        "price": "$30",
+    "frequencies": {
+      "monthly": "Mensual",
+      "annually": "Anual"
+    },
+    "plans": {
+      "free": {
+        "name": "Gratis",
+        "description": "Para equipos pequeños",
         "features": [
-          "Característica A",
-          "Característica B",
-          "Característica C",
-          "Característica D"
-        ]
+          "Miembros ilimitados",
+          "5 espacios de trabajo",
+          "Soporte comunitario en Slack"
+        ],
+        "button": "Comenzar"
       },
-      {
+      "starter": {
+        "name": "Inicial",
+        "description": "Para equipos en crecimiento",
+        "features": [
+          "Miembros ilimitados",
+          "10 espacios de trabajo",
+          "Soporte comunitario en Slack"
+        ],
+        "button": "Comenzar"
+      },
+      "enterprise": {
         "name": "Empresarial",
-        "price": "Contáctanos",
+        "description": "Para necesidades personalizadas",
         "features": [
-          "Característica A",
-          "Característica B",
-          "Característica C",
-          "Característica D",
-          "Característica E"
-        ]
+          "Miembros ilimitados",
+          "Espacios de trabajo ilimitados",
+          "Soporte prioritario",
+          "Inicio de sesión único (SSO)",
+          "Historial de 90 días"
+        ],
+        "button": "Contactanos"
       }
-    ],
-    "button": "Elegir"
+    },
+    "recommended": "Recomendado",
+    "included": "Incluido"
   },
   "settings": {
     "title": "Configuración",
@@ -69,7 +80,7 @@
     "title": "Menú"
   },
   "header": {
-    "signin": "Iniciar Sesión",
-    "signout": "Cerrar Sesión"
+    "signin": "Iniciar sesión",
+    "signout": "Cerrar sesión"
   }
 }

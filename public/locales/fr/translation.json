@@ -3,41 +3,52 @@
     "home": "Accueil",
     "docs": "Documentation",
     "contact": "Contact",
-    "pricing": "Tarifs",
+    "pricing": "Tarification",
     "settings": "Paramètres",
     "api": "API",
     "account": "Compte"
   },
   "pricing": {
-    "cards": [
-      {
-        "name": "Basique",
-        "price": "10 €",
-        "features": ["Fonctionnalité A", "Fonctionnalité B", "Fonctionnalité C"]
-      },
-      {
-        "name": "Pro",
-        "price": "30 €",
+    "frequencies": {
+      "monthly": "Mensuel",
+      "annually": "Annuel"
+    },
+    "plans": {
+      "free": {
+        "name": "Gratuit",
+        "description": "Pour les petites équipes",
         "features": [
-          "Fonctionnalité A",
-          "Fonctionnalité B",
-          "Fonctionnalité C",
-          "Fonctionnalité D"
-        ]
+          "Membres illimités",
+          "5 espaces de travail",
+          "Support communautaire Slack"
+        ],
+        "button": "Commencer"
       },
-      {
+      "starter": {
+        "name": "Débutant",
+        "description": "Pour les équipes en croissance",
+        "features": [
+          "Membres illimités",
+          "10 espaces de travail",
+          "Support communautaire Slack"
+        ],
+        "button": "Commencer"
+      },
+      "enterprise": {
         "name": "Entreprise",
-        "price": "Contactez-nous",
+        "description": "Pour des besoins personnalisés",
         "features": [
-          "Fonctionnalité A",
-          "Fonctionnalité B",
-          "Fonctionnalité C",
-          "Fonctionnalité D",
-          "Fonctionnalité E"
-        ]
+          "Membres illimités",
+          "Espaces de travail illimités",
+          "Support prioritaire",
+          "Connexion unique (SSO)",
+          "Historique de 90 jours"
+        ],
+        "button": "Nous contacter"
       }
-    ],
-    "button": "Choisir"
+    },
+    "recommended": "Recommandé",
+    "included": "Inclus"
   },
   "settings": {
     "title": "Paramètres",
@@ -46,14 +57,14 @@
   },
   "language": {
     "en": "Anglais",
-    "es": "Espagol",
+    "es": "Espagnol",
     "fr": "Français"
   },
   "nav": {
     "home": "Accueil",
     "docs": "Documentation",
     "contact": "Contact",
-    "pricing": "Tarifs"
+    "pricing": "Tarification"
   },
   "contact": {
     "name": "Nom",
@@ -70,6 +81,6 @@
   },
   "header": {
     "signin": "Se connecter",
-    "signout": "Déconnexion"
+    "signout": "Se déconnecter"
   }
 }
