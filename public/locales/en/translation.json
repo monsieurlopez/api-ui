@@ -3,33 +3,78 @@
     "home": "Home",
     "docs": "Documentation",
     "contact": "Contact",
-    "pricing": "Pricing"
+    "pricing": "Pricing",
+    "settings": "Settings",
+    "api": "API key & Usage",
+    "account": "Account"
+  },
+  "headers": {
+    "home": {
+      "title": "Build, scale, and ship with confidence",
+      "description": "Welcome to your new development hub — fast, flexible, and designed to empower your team at every stage."
+    },
+    "account": {
+      "title": "Manage your personal account with ease",
+      "description": "Control your account settings and manage your preferences — all from one place. We make it simple to stay organized and secure."
+    },
+    "pricing": {
+      "title": "Our plans scale with you",
+      "description": "Plans that empower you and your team to ship without friction. Our flexible pricing models ensure that efficiency doesn’t come at the cost of your budget."
+    },
+    "contact": {
+      "title": "Let’s talk!",
+      "description": "Whether you have a question, need support, or want to explore how we can help your team, we’re here for you."
+    },
+    "documentation": {
+      "title": "Everything you need to integrate and build",
+      "description": "Explore our complete documentation, API references, and guides to help you get started in minutes."
+    },
+    "api": {
+      "title": "Manage your API keys and usage",
+      "description": "Securely generate, monitor, and revoke your API keys with ease. Keep control of your access and limits."
+    }
   },
   "pricing": {
-    "cards": [
-      {
-        "name": "Basic",
-        "price": "$10",
-        "features": ["Feature A", "Feature B", "Feature C"]
-      },
-      {
-        "name": "Pro",
-        "price": "$30",
-        "features": ["Feature A", "Feature B", "Feature C", "Feature D"]
-      },
-      {
-        "name": "Enterprise",
-        "price": "Contact us",
+    "frequencies": {
+      "monthly": "Monthly",
+      "annually": "Annually"
+    },
+    "plans": {
+      "free": {
+        "name": "Free",
+        "description": "For small teams",
         "features": [
-          "Feature A",
-          "Feature B",
-          "Feature C",
-          "Feature D",
-          "Feature E"
-        ]
+          "Unlimited members",
+          "5 workspaces",
+          "Community Slack Support"
+        ],
+        "button": "Get started"
+      },
+      "starter": {
+        "name": "Starter",
+        "description": "For growing teams",
+        "features": [
+          "Unlimited members",
+          "10 workspaces",
+          "Community Slack Support"
+        ],
+        "button": "Get started"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "For custom needs",
+        "features": [
+          "Unlimited members",
+          "Unlimited workspaces",
+          "Priority Support",
+          "Single Sign-On (SSO)",
+          "90 days of history"
+        ],
+        "button": "Contact us"
       }
-    ],
-    "button": "Choose"
+    },
+    "recommended": "Recommended",
+    "included": "Included"
   },
   "settings": {
     "title": "Settings",
@@ -51,16 +96,17 @@
     "name": "Name",
     "email": "Email",
     "message": "Message",
-    "agreement": "I have read the ",
-    "agreement_link": "agreement",
     "submit": "Submit",
     "validation": {
       "required": "{{label}} is required!",
-      "email": "{{label}} is not a valid email!",
-      "agreement_check": "Please accept the agreement"
+      "email": "{{label}} is not a valid email!"
     }
   },
   "menu": {
     "title": "Menu"
+  },
+  "header": {
+    "signin": "Sign in",
+    "signout": "Sign out"
   }
 }

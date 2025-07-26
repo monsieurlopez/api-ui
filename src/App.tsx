@@ -1,18 +1,23 @@
-import { Routes, Route } from "react-router-dom";
-import { Header } from "./components/layout/Header";
-import { Pricing, Home, Contact, Docs } from "./pages/pages";
+import { Layout } from "antd";
+import { useState } from "react";
+import { SidebarMenu } from "./components/layout/SideBarMenu";
+import { HeaderBar } from "./components/layout/HeaderBar";
+import { MainContent } from "./components/layout/MainContent";
 
-const App = () => {
+const App: React.FC = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
-    <div className="h-[100vh] bg-white text-black dark:bg-gray-900 dark:text-white mx-auto flex flex-col items-center overflow-auto">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/docs" element={<Docs />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/pricing" element={<Pricing />} />
-      </Routes>
-    </div>
+    <Layout className="h-screen">
+      <SidebarMenu collapsed={collapsed} onCollapse={setCollapsed} />
+      <Layout>
+        <HeaderBar
+          collapsed={collapsed}
+          toggleCollapsed={() => setCollapsed(!collapsed)}
+        />
+        <MainContent />
+      </Layout>
+    </Layout>
   );
 };
 
