@@ -23,7 +23,7 @@ export const BillingPlan: React.FC = () => {
                 $100/month <span className="font-normal">(incl. VAT)</span>
               </p>
               <a
-                href="/princing"
+                href="/pricing"
                 className="mt-6 inline-flex rounded border border-gray-200 bg-white px-2.5 py-1.5 font-medium text-gray-500 shadow-sm hover:bg-gray-50 hover:text-gray-900"
               >
                 Manage plans
