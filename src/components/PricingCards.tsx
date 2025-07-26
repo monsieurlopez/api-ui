@@ -82,8 +82,8 @@ export const PricingCards = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="container mt-4 px-4 w-full mx-auto">
-      <div className="flex flex-wrap gap-5 justify-center mx-auto items-stretch">
+    <section className="container mt-4 w-full mx-auto">
+      <div className="flex flex-wrap justify-center md:justify-start items-stretch gap-4">
         {plans.map((plan, planIdx) => {
           const priceToShow: string =
             plan.isRecommended && typeof plan.price !== "string"
@@ -97,7 +97,7 @@ export const PricingCards = () => {
                 plan.isRecommended
                   ? "border-2 border-indigo-600 dark:border-indigo-400"
                   : "border border-gray-300 dark:border-gray-700",
-                "relative flex flex-col justify-between rounded-lg bg-white dark:bg-gray-800 p-6 shadow max-w-[400px] w-full"
+                "relative flex flex-col justify-between rounded-lg bg-white dark:bg-gray-800 p-4 shadow max-w-[300px] w-full"
               )}
             >
               <div className="flex items-center justify-between gap-x-4">
@@ -122,7 +122,7 @@ export const PricingCards = () => {
                 )}
               </p>
 
-              <div className="relative flex h-20 items-center justify-center mt-6">
+              <div className="relative flex h-5 items-center justify-center mt-6">
                 <div
                   className="absolute inset-0 flex items-center"
                   aria-hidden="true"

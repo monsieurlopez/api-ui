@@ -12,7 +12,7 @@ export const SettingsAccount: React.FC = () => {
     "relative border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 p-7 shadow max-w-[400px] w-full";
 
   const classH3 =
-    "absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[60%] bg-white dark:bg-gray-800 px-5 text-center text-lg font-medium text-gray-900 dark:text-gray-100 dark:border border-gray-300 dark:border-gray-700 dark:rounded-lg";
+    "absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[60%] bg-white dark:bg-transparent px-5 text-center text-lg font-medium text-gray-900 dark:text-gray-100";
 
   return (
     <>

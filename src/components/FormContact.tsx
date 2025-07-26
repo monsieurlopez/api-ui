@@ -1,6 +1,7 @@
 import type React from "react";
 import { Button, Form, Input } from "antd";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../context/useTheme";
 
 type ContactFormValues = {
   user: {
@@ -13,6 +14,7 @@ type ContactFormValues = {
 
 export const FormContact: React.FC = () => {
   const { t } = useTranslation();
+  const { theme } = useTheme();
   const validateMessages = {
     required: "${label} is required!",
     types: {
@@ -25,13 +27,13 @@ export const FormContact: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex justify-center px-4">
+    <div className="w-full flex justify-start">
       <Form
         layout="vertical"
         name="contact-form"
         onFinish={onFinish}
         validateMessages={validateMessages}
-        className="w-full max-w-2xl"
+        className="w-full max-w-lg xl:max-w-2xl"
       >
         <Form.Item
           name={["user", "name"]}
@@ -51,7 +53,12 @@ export const FormContact: React.FC = () => {
         >
           <Input
             size="middle"
-            className="bg-white dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 border-gray-300 dark:border-gray-600"
+            className="dark:placeholder-gray-400"
+            style={{
+              backgroundColor: theme === "dark" ? "#374151" : "white",
+              color: theme === "dark" ? "#fff" : "#000",
+              borderColor: theme === "dark" ? "#4b5563" : "#d1d5db",
+            }}
           />
         </Form.Item>
 
@@ -79,7 +86,12 @@ export const FormContact: React.FC = () => {
         >
           <Input
             size="middle"
-            className="bg-white dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 border-gray-300 dark:border-gray-600"
+            className="dark:placeholder-gray-400"
+            style={{
+              backgroundColor: theme === "dark" ? "#374151" : "white",
+              color: theme === "dark" ? "#fff" : "#000",
+              borderColor: theme === "dark" ? "#4b5563" : "#d1d5db", // Tailwind: gray-600 / gray-300
+            }}
           />
         </Form.Item>
 
@@ -101,12 +113,23 @@ export const FormContact: React.FC = () => {
         >
           <Input.TextArea
             rows={5}
-            className="bg-white dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 border-gray-300 dark:border-gray-600"
+            className="dark:placeholder-gray-400"
+            style={{
+              backgroundColor: theme === "dark" ? "#374151" : "white",
+              color: theme === "dark" ? "#fff" : "#000",
+              borderColor: theme === "dark" ? "#4b5563" : "#d1d5db", // Tailwind: gray-600 / gray-300
+            }}
           />
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" size="large" block>
+          <Button
+            type="primary"
+            htmlType="submit"
+            size="large"
+            block
+            className="max-w-max"
+          >
             {t("contact.submit")}
           </Button>
         </Form.Item>
