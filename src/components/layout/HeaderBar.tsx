@@ -49,6 +49,7 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
           display: isMobile ? "block" : "none",
           cursor: "default",
           color: theme === "dark" ? "#fff" : "#001529",
+          marginRight: "10px",
         }}
         separator
       />
