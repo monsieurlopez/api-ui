@@ -35,7 +35,7 @@ export const LanguageSelector = () => {
               }}
               className={`cursor-pointer transition-all border md:min-w-[12rem] min-w-full ${
                 isSelected
-                  ? "dark:bg-indigo-800 dark:border-indigo-400"
+                  ? "dark:bg-indigo-900 dark:border-indigo-400"
                   : "border-gray-200 hover:border-indigo-300 dark:border-gray-600 dark:hover:border-indigo-500"
               }`}
             >
