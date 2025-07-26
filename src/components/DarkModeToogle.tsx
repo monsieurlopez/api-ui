@@ -1,61 +1,70 @@
 import { SunFilled, MoonFilled } from "@ant-design/icons";
 import { useTheme } from "../context/useTheme";
+import { Card } from "antd";
 
 const themeOptions = [
   {
     code: "light",
     label: "Light",
-    icon: <SunFilled className="w-6 h-6 text-yellow-500" />,
+    icon: <SunFilled className="text-yellow-500" />,
+    description:
+      "Switch to light mode for better visibility in bright environments.",
   },
   {
     code: "dark",
     label: "Dark",
-    icon: <MoonFilled className="w-6 h-6 text-gray-900" />,
+    icon: <MoonFilled className="text-gray-900" />,
+    description: "Switch to dark mode for reduced eye strain in low light.",
   },
 ];
 
 export const DarkModeToggle = () => {
   const { theme, toggleTheme } = useTheme();
 
-  // Cambia de tema al seleccionar el radio
   const handleChange = (value: string) => {
     if (value !== theme) toggleTheme();
   };
 
   return (
-    <fieldset className="md:flex md:justify-center grid grid-cols-1 gap-4 max-w-md mx-auto">
-      <legend className="sr-only">Toggle theme</legend>
-      {themeOptions.map(({ code, label, icon }) => {
-        const isSelected = theme === code;
-        return (
-          <label
-            key={code}
-            htmlFor={`theme-${code}`}
-            className={`
-              flex items-center gap-5 rounded-md border p-3 cursor-pointer justify-center transition
-              ${
-                isSelected
-                  ? "border-indigo-600 bg-indigo-50 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200"
-                  : "border-gray-300 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
-              }
-            `}
-          >
-            <input
-              type="radio"
-              id={`theme-${code}`}
-              name="theme"
-              value={code}
-              checked={isSelected}
-              onChange={() => handleChange(code)}
-              className="h-3 w-3 accent-indigo-600 dark:accent-indigo-400"
-            />
-            <span className="flex items-center gap-0">
-              {icon}
-              <span className="text-sm font-medium m-0 p-0">{label}</span>
-            </span>
-          </label>
-        );
-      })}
-    </fieldset>
+    <div>
+      <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        Theme
+      </h2>
+      <p className="mt-1 text-gray-500 dark:text-gray-400">
+        Choose between light and dark themes to suit your preference.
+      </p>
+
+      <div className="mt-6 flex flex-col sm:flex-row flex-wrap justify-start items-stretch gap-4">
+        {themeOptions.map(({ code, label, icon, description }) => {
+          const isSelected = theme === code;
+          return (
+            <Card
+              key={code}
+              onClick={() => handleChange(code)}
+              style={{
+                borderColor: isSelected ? "indigo" : "",
+              }}
+              className={`cursor-pointer transition-all ${isSelected ? "border-indigo-600 bg-indigo-50 dark:bg-indigo-900" : "border-gray-200 hover:border-indigo-500"}`}
+            >
+              <div className="flex items-center gap-4">
+                <div className="text-2xl">{icon}</div>
+                <div>
+                  <h3
+                    className={`text-lg font-medium ${isSelected ? "text-indigo-800 dark:text-indigo-200" : "text-gray-900 dark:text-white"}`}
+                  >
+                    {label}
+                  </h3>
+                  <p
+                    className={`mt-1 ${isSelected ? "text-indigo-600 dark:text-indigo-300" : "text-gray-500 dark:text-gray-400"}`}
+                  >
+                    {description}
+                  </p>
+                </div>
+              </div>
+            </Card>
+          );
+        })}
+      </div>
+    </div>
   );
 };

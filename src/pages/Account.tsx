@@ -9,7 +9,6 @@ export const Account: React.FC = () => {
         titleKey="headers.account.title"
         descriptionKey="headers.account.description"
       />
-
       <SettingsAccount />
     </section>
   );

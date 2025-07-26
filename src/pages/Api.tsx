@@ -1,5 +1,6 @@
 import type React from "react";
 import { HeaderContain } from "../components/HeaderContain";
+import { Usage } from "../components/Usage";
 
 export const Api: React.FC = () => {
   return (
@@ -8,6 +9,7 @@ export const Api: React.FC = () => {
         titleKey="headers.api.title"
         descriptionKey="headers.api.description"
       />
+      <Usage />
     </section>
   );
 };
