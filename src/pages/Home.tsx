@@ -1,5 +1,5 @@
 import type React from "react";
-import { HeaderContain } from "../components/HeaderContain";
+import { HeaderContain } from "../components/global/HeaderContain";
 
 export const Home: React.FC = () => {
   return (

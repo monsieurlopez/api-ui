@@ -1,9 +1,9 @@
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../../hooks/useLanguage";
 import { useTranslation } from "react-i18next";
 import { Card } from "antd";
-import flagEs from "../images/espagne.png";
-import flagFr from "../images/france.png";
-import flagEu from "../images/etats-unis.png";
+import flagEs from "../../../images/espagne.png";
+import flagFr from "../../../images/france.png";
+import flagEu from "../../../images/etats-unis.png";
 
 const languageOptions = [
   { code: "en", labelKey: "language.en", flag: flagEu },

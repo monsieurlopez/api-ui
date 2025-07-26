@@ -1,8 +1,8 @@
 import { ClerkProvider } from "@clerk/clerk-react";
-import { useTheme } from "../context/useTheme";
-import App from "../App";
+import { useTheme } from "../../context/useTheme";
+import App from "../../App";
 import { dark } from "@clerk/themes";
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../hooks/useLanguage";
 import { frFR, esES, enUS } from "@clerk/localizations";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;

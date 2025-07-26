@@ -1,6 +1,6 @@
 import type React from "react";
-import { HeaderContain } from "../components/HeaderContain";
-import { Usage } from "../components/Usage";
+import { HeaderContain } from "../components/global/HeaderContain";
+import { Usage } from "../components/setting/api/Usage";
 
 export const Api: React.FC = () => {
   return (

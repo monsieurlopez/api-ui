@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, Layout } from "antd";
-import { ButtonCollapseSider } from "../ButtonCollapseSider";
+import { ButtonCollapseSider } from "../global/ButtonCollapseSider";
 //import { SignedIn, UserButton } from "@clerk/clerk-react";
 import type { MenuProps } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";

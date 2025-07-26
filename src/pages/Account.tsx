@@ -1,6 +1,6 @@
 import type React from "react";
-import { SettingsAccount } from "../components/SettingsAccount";
-import { HeaderContain } from "../components/HeaderContain";
+import { SettingsAccount } from "../components/setting/account/SettingsAccount";
+import { HeaderContain } from "../components/global/HeaderContain";
 
 export const Account: React.FC = () => {
   return (

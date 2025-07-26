@@ -1,6 +1,6 @@
 import type React from "react";
-import { PricingCards } from "../components/PricingCards";
-import { HeaderContain } from "../components/HeaderContain";
+import { PricingCards } from "../components/pricing/PricingCards";
+import { HeaderContain } from "../components/global/HeaderContain";
 export const Pricing: React.FC = () => {
   return (
     <section className="container md:w-5xl flex flex-col mx-auto">

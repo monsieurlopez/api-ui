@@ -1,8 +1,8 @@
 //* Todo el codigo comentado es para poder usar Vercel y Clerk *//
 import { Layout, Grid } from "antd";
 //import { Button } from "antd";
-import { ButtonCollapseSider } from "../ButtonCollapseSider";
-import { BreadcrumbComponent } from "../BreadcrumbComponent";
+import { ButtonCollapseSider } from "../global/ButtonCollapseSider";
+import { BreadcrumbComponent } from "../global/BreadcrumbComponent";
 /*import {
   SignedIn,
   SignedOut,
