@@ -8,6 +8,32 @@
     "api": "API key & Usage",
     "account": "Account"
   },
+  "headers": {
+    "home": {
+      "title": "Build, scale, and ship with confidence",
+      "description": "Welcome to your new development hub — fast, flexible, and designed to empower your team at every stage."
+    },
+    "account": {
+      "title": "Manage your personal account with ease",
+      "description": "Control your account settings and manage your preferences — all from one place. We make it simple to stay organized and secure."
+    },
+    "pricing": {
+      "title": "Our plans scale with you",
+      "description": "Plans that empower you and your team to ship without friction. Our flexible pricing models ensure that efficiency doesn’t come at the cost of your budget."
+    },
+    "contact": {
+      "title": "Let’s talk!",
+      "description": "Whether you have a question, need support, or want to explore how we can help your team, we’re here for you."
+    },
+    "documentation": {
+      "title": "Everything you need to integrate and build",
+      "description": "Explore our complete documentation, API references, and guides to help you get started in minutes."
+    },
+    "api": {
+      "title": "Manage your API keys and usage",
+      "description": "Securely generate, monitor, and revoke your API keys with ease. Keep control of your access and limits."
+    }
+  },
   "pricing": {
     "frequencies": {
       "monthly": "Monthly",

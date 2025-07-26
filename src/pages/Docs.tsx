@@ -1,10 +1,12 @@
 import type React from "react";
-//import { useTranslation } from "react-i18next";
-
+import { HeaderContain } from "../components/HeaderContain";
 export const Docs: React.FC = () => {
-  //const { t } = useTranslation();
-
   return (
-    <section className="container text-center w-full flex flex-col"></section>
+    <section className="container md:w-5xl flex flex-col mx-auto">
+      <HeaderContain
+        titleKey="headers.docs.title"
+        descriptionKey="headers.docs.description"
+      />
+    </section>
   );
 };

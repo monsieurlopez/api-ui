@@ -8,6 +8,32 @@
     "api": "Clave API & Uso",
     "account": "Cuenta"
   },
+  "headers": {
+    "home": {
+      "title": "Crea, escala y lanza con confianza",
+      "description": "Bienvenido a tu nuevo centro de desarrollo — rápido, flexible y diseñado para potenciar a tu equipo en cada etapa."
+    },
+    "account": {
+      "title": "Gestiona tu cuenta personal con facilidad",
+      "description": "Controla la configuración de tu cuenta y gestiona tus preferencias — todo desde un solo lugar. Te lo ponemos fácil para que estés organizado y seguro."
+    },
+    "pricing": {
+      "title": "Nuestros planes crecen contigo",
+      "description": "Planes que empoderan a tu equipo para lanzar sin fricciones. Nuestros modelos flexibles se adaptan a tu presupuesto."
+    },
+    "contact": {
+      "title": "¡Hablemos!",
+      "description": "Ya sea que tengas una pregunta, necesites soporte o quieras explorar cómo podemos ayudarte, estamos aquí para ti."
+    },
+    "documentation": {
+      "title": "Todo lo que necesitas para integrar y construir",
+      "description": "Explora nuestra documentación completa, referencias de API y guías para empezar en minutos."
+    },
+    "api": {
+      "title": "Gestiona tus claves API y uso",
+      "description": "Genera, monitorea y revoca tus claves API de forma segura. Controla tu acceso y límites fácilmente."
+    }
+  },
   "pricing": {
     "frequencies": {
       "monthly": "Mensual",

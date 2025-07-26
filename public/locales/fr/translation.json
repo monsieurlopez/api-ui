@@ -8,6 +8,32 @@
     "api": "Clé API & Utilisation",
     "account": "Compte"
   },
+  "headers": {
+    "home": {
+      "title": "Créez, évoluez et déployez en toute confiance",
+      "description": "Bienvenue sur votre nouveau hub de développement — rapide, flexible et conçu pour accompagner votre équipe à chaque étape."
+    },
+    "account": {
+      "title": "Gérez facilement votre compte personnel",
+      "description": "Contrôlez vos paramètres et préférences — tout depuis un seul endroit. Simple, organisé et sécurisé."
+    },
+    "pricing": {
+      "title": "Nos plans évoluent avec vous",
+      "description": "Des plans qui permettent à votre équipe de travailler sans friction. Nos modèles flexibles s’adaptent à votre budget."
+    },
+    "contact": {
+      "title": "Discutons-en !",
+      "description": "Une question, besoin d’aide ou envie de collaborer ? Nous sommes à votre écoute."
+    },
+    "documentation": {
+      "title": "Tout ce dont vous avez besoin pour intégrer et construire",
+      "description": "Consultez notre documentation complète, références API et guides pour démarrer rapidement."
+    },
+    "api": {
+      "title": "Gérez vos clés API et votre utilisation",
+      "description": "Générez, surveillez et révoquez vos clés API en toute sécurité. Gardez le contrôle de vos accès et limites."
+    }
+  },
   "pricing": {
     "frequencies": {
       "monthly": "Mensuel",
