@@ -6,14 +6,15 @@ import "./App.css";
 import "./plugins/i18n.tsx";
 import { ThemeProvider } from "./context/ThemeProvider.tsx";
 import { LanguageProvider } from "./context/LangauageProvider.tsx";
-import { ClerkWrapper } from "./components/ClerkWrapper.tsx";
+import App from "./App.tsx";
+//import { ClerkWrapper } from "./components/ClerkWrapper.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <ThemeProvider>
         <LanguageProvider>
-          <ClerkWrapper />
+          <App />
         </LanguageProvider>
       </ThemeProvider>
     </BrowserRouter>
