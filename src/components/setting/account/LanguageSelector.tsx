@@ -16,14 +16,14 @@ export const LanguageSelector = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="max-w-full">
+    <div className="w-full">
       <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
         Language
       </h2>
       <p className="mt-1 text-gray-500 dark:text-gray-400">
         Choose your preferred language for the application.
       </p>
-      <div className="mt-6 flex flex-col sm:flex-row flex-wrap justify-start items-stretch gap-4">
+      <div className="mt-6 flex flex-wrap justify-start items-stretch gap-4">
         {languageOptions.map(({ code, labelKey, flag }) => {
           const isSelected = language === code;
           return (
@@ -32,9 +32,8 @@ export const LanguageSelector = () => {
               onClick={() => setLanguage(code)}
               style={{
                 borderColor: isSelected ? "indigo" : "",
-                minWidth: "12rem",
               }}
-              className={`cursor-pointer transition-all border ${
+              className={`cursor-pointer transition-all border md:min-w-[12rem] min-w-full ${
                 isSelected
                   ? "dark:bg-indigo-800 dark:border-indigo-400"
                   : "border-gray-200 hover:border-indigo-300 dark:border-gray-600 dark:hover:border-indigo-500"
