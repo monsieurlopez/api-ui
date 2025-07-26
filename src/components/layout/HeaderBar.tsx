@@ -1,13 +1,13 @@
 import { Layout, Button, Grid } from "antd";
 import { ButtonCollapseSider } from "../ButtonCollapseSider";
 import { BreadcrumbComponent } from "../BreadcrumbComponent";
-import {
+/*import {
   SignedIn,
   SignedOut,
   SignInButton,
   SignOutButton,
-} from "@clerk/clerk-react";
-import { useTranslation } from "react-i18next";
+} from "@clerk/clerk-react";*/
+//import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/useTheme";
 
 const { Header } = Layout;
@@ -18,7 +18,7 @@ type Props = {
 };
 
 export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
-  const { t } = useTranslation();
+  //const { t } = useTranslation();
   const { theme } = useTheme();
   const { useBreakpoint } = Grid;
   const screens = useBreakpoint();
@@ -51,7 +51,7 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
         separator
       />
 
-      <div className="sm:absolute right-0 mr-2 flex items-center gap-2">
+      {/*<div className="sm:absolute right-0 mr-2 flex items-center gap-2">
         <SignedOut>
           <SignInButton>
             <Button type={theme === "dark" ? "primary" : "default"}>
@@ -69,7 +69,7 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
             </Button>
           </SignOutButton>
         </SignedIn>
-      </div>
+      </div>*/}
     </Header>
   );
 };
