@@ -56,7 +56,7 @@ export const navItems: NavItem[] = [
       {
         key: "6",
         path: "/settings/api",
-        label: "API",
+        label: "API key & Usage",
         icon: <SwapOutlined />,
         i18nKey: "pages.api",
       },
