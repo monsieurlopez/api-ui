@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
-import { Button, Tooltip } from "antd";
+import { Button, /*Tooltip,*/ Grid } from "antd";
 import {
   CheckCircleOutlined,
   MinusCircleOutlined,
-  InfoCircleOutlined,
+  //InfoCircleOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { Plan, Section } from "../../../config/plansDictionary";
+import type { Plan, Section } from "../../../config/plansDictionary";
 
 interface TablePlansProps {
   plans: Plan[];
@@ -20,13 +20,21 @@ const isVariablePrice = (
   return typeof price !== "string";
 };
 
+const { useBreakpoint } = Grid;
+
 export const TablePlans: React.FC<TablePlansProps> = ({
   plans,
   sections,
   billingFrequency,
 }) => {
+  const screens = useBreakpoint();
+
+  const sizeText: string = screens.xs ? "text-xs" : "text-sm";
+  const smallScreen: boolean | undefined =
+    screens.xs || (screens.sm && !screens.md);
+
   return (
-    <section className="mx-auto mt-20">
+    <section className="mx-auto">
       <div className="mt-5 md:mt-10">
         <div className="relative">
           <div className="sticky top-0 z-20 h-28 w-full bg-white dark:bg-gray-950" />
@@ -47,7 +55,9 @@ export const TablePlans: React.FC<TablePlansProps> = ({
                   <div className="font-semibold leading-7 text-gray-900 dark:text-gray-50">
                     Compare prices
                   </div>
-                  <div className="text-sm font-normal text-gray-600 dark:text-gray-400">
+                  <div
+                    className={`${sizeText} font-normal text-gray-600 dark:text-gray-400`}
+                  >
                     Price per month (billed yearly)
                   </div>
                 </th>
@@ -65,7 +75,9 @@ export const TablePlans: React.FC<TablePlansProps> = ({
                       }
                     >
                       <div className="font-semibold leading-7">{plan.name}</div>
-                      <div className="text-sm font-normal text-gray-600 dark:text-gray-400">
+                      <div
+                        className={`${sizeText} font-normal text-gray-600 dark:text-gray-400`}
+                      >
                         {isVariablePrice(plan.price)
                           ? billingFrequency === "monthly"
                             ? plan.price.monthly
@@ -97,14 +109,14 @@ export const TablePlans: React.FC<TablePlansProps> = ({
                     >
                       <th
                         scope="row"
-                        className="flex items-center gap-2 border-b border-gray-100 py-4 text-sm font-normal leading-6 text-gray-900 dark:border-gray-800 dark:text-gray-50"
+                        className={`${sizeText}flex items-center gap-2 border-b border-gray-100 py-4 font-normal leading-6 text-gray-900 dark:border-gray-800 dark:text-gray-50`}
                       >
                         <span>{feature.name}</span>
-                        {feature.tooltip && (
+                        {/*{feature.tooltip && (
                           <Tooltip title={feature.tooltip}>
                             <InfoCircleOutlined className="text-gray-700 dark:text-gray-400" />
                           </Tooltip>
-                        )}
+                        )}*/}
                       </th>
                       {plans.map((plan) => (
                         <td
@@ -112,7 +124,9 @@ export const TablePlans: React.FC<TablePlansProps> = ({
                           className="border-b border-gray-100 px-6 py-4 lg:px-8 dark:border-gray-800"
                         >
                           {typeof feature.plans[plan.name] === "string" ? (
-                            <div className="text-sm leading-6 text-gray-600 dark:text-gray-400">
+                            <div
+                              className={`${sizeText} leading-6 text-gray-600 dark:text-gray-400`}
+                            >
                               {feature.plans[plan.name]}
                             </div>
                           ) : (
@@ -133,14 +147,18 @@ export const TablePlans: React.FC<TablePlansProps> = ({
               <tr>
                 <th
                   scope="row"
-                  className="pt-6 text-sm font-normal leading-6 text-gray-900 dark:text-gray-50"
+                  className={`${sizeText}pt-6 font-normal leading-6 text-gray-900 dark:text-gray-50`}
                 >
                   <span className="sr-only">Link to activate plan</span>
                 </th>
                 {plans.map((plan) => (
                   <td key={plan.name} className="px-6 pt-6 lg:px-8">
                     <Link to={plan.buttonLink}>
-                      <Button type={plan.isStarter ? "default" : "primary"}>
+                      <Button
+                        type={plan.isStarter ? "default" : "primary"}
+                        className={sizeText}
+                        size={smallScreen ? "small" : "middle"}
+                      >
                         {plan.buttonText}
                       </Button>
                     </Link>

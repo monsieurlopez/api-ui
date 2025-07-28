@@ -42,7 +42,7 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
         padding: 0,
         position: isMobile ? "sticky" : "relative",
         top: isMobile ? 0 : undefined,
-        zIndex: isMobile ? 1 : undefined,
+        zIndex: isMobile ? 100 : undefined,
       }}
       className={`flex justify-between items-center ${isMobileBoxShadow}`}
     >

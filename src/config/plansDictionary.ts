@@ -29,14 +29,14 @@ export const plans: Plan[] = [
   {
     name: "Teams",
     price: { monthly: "$49", annually: "$39" },
-    buttonText: "Start 14-day trial",
+    buttonText: "Free trial",
     buttonLink: "#",
     isStarter: false,
   },
   {
     name: "Business",
     price: { monthly: "$99", annually: "$79" },
-    buttonText: "Start 14-day trial",
+    buttonText: "Free trial",
     buttonLink: "#",
     isStarter: false,
   },
@@ -65,7 +65,7 @@ export const sections: Section[] = [
         plans: {
           Starter: "$0.65 per stored GB",
           Teams: "$0.34 per stored GB",
-          Business: "Customized¹",
+          Business: "Customized",
         },
       },
       {
