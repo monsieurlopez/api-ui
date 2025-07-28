@@ -39,10 +39,10 @@ export const LanguageSelector = () => {
                   : "border-gray-200 hover:border-indigo-300 dark:border-gray-600 dark:hover:border-indigo-500"
               }`}
             >
-              <div className="flex items-center justify-center gap-2 p-4">
+              <div className="flex items-center justify-center gap-2">
                 <img src={flag} alt={`${code} flag`} className="h-5" />
                 <h3
-                  className={`text-lg font-medium ${
+                  className={`text-md font-medium ${
                     isSelected
                       ? "text-indigo-800 dark:text-indigo-200"
                       : "text-gray-900 dark:text-white"
