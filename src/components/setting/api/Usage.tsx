@@ -1,5 +1,6 @@
 import React from "react";
 import { Progress, Tabs } from "antd";
+import { Link } from "react-router-dom";
 
 export const Usage: React.FC = () => {
   return (
@@ -20,12 +21,12 @@ export const Usage: React.FC = () => {
               </span>
               <span className="text-gray-500"> / 1000 API calls</span>
             </p>
-            <a
-              href="/pricing"
+            <Link
+              to="/pricing"
               className="rounded border border-gray-200 bg-white px-2.5 py-1.5 font-medium text-gray-500 shadow-sm hover:bg-gray-50 hover:text-gray-900"
             >
               Upgrade Plan
-            </a>
+            </Link>
           </div>
         </div>
       </Tabs>

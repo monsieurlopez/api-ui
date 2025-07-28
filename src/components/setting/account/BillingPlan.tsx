@@ -1,5 +1,6 @@
 import React from "react";
 import { Tabs, Divider } from "antd";
+import { Link } from "react-router-dom";
 
 export const BillingPlan: React.FC = () => {
   return (
@@ -22,24 +23,24 @@ export const BillingPlan: React.FC = () => {
               <p className="mt-2 font-semibold text-gray-900">
                 $100/month <span className="font-normal">(incl. VAT)</span>
               </p>
-              <a
-                href="/pricing"
+              <Link
+                to="/pricing"
                 className="mt-6 inline-flex rounded border border-gray-200 bg-white px-2.5 py-1.5 font-medium text-gray-500 shadow-sm hover:bg-gray-50 hover:text-gray-900"
               >
                 Manage plans
-              </a>
+              </Link>
             </div>
             <div>
               <p className="font-medium text-gray-900">Billing period</p>
               <p className="mt-2 font-semibold text-gray-900">
                 Monthly <span className="font-normal">(renews 20/08/23)</span>
               </p>
-              <a
-                href="#"
+              <Link
+                to="/pricing"
                 className="mt-6 inline-flex rounded border border-gray-200 bg-white px-2.5 py-1.5 font-medium text-gray-500 shadow-sm hover:bg-gray-50 hover:text-gray-900"
               >
                 Change billing period
-              </a>
+              </Link>
             </div>
           </div>
         </div>
