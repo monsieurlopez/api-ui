@@ -26,6 +26,13 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
   const screens = useBreakpoint();
   const isMobile = screens.xs && !screens.sm;
 
+  const isMobileBoxShadow =
+    isMobile && theme !== "dark"
+      ? "shadow-xs"
+      : isMobile && theme === "dark"
+        ? "shadow-sm shadow-gray-100"
+        : "";
+
   return (
     <Header
       style={{
@@ -36,9 +43,8 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
         position: isMobile ? "sticky" : "relative",
         top: isMobile ? 0 : undefined,
         zIndex: isMobile ? 1 : undefined,
-        boxShadow: isMobile ? "0 2px 8px rgba(0, 0, 0, 0.15)" : undefined,
       }}
-      className="flex justify-between items-center"
+      className={`flex justify-between items-center ${isMobileBoxShadow}`}
     >
       <ButtonCollapseSider
         collapsed={collapsed}
