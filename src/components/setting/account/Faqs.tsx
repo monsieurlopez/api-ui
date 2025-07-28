@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { DownOutlined } from "@ant-design/icons";
 import { type FaqItem } from "../../../config/faqsDictionary";
+import { Link } from "react-router-dom";
 
 interface FaqsProps {
   faqs: FaqItem[];
@@ -22,12 +23,12 @@ export const Faqs: React.FC<FaqsProps> = ({ faqs }) => {
         <p className="text-gray-600 dark:text-gray-400 mt-2">
           Can’t find the answer you’re looking for? Don’t hesitate to get in
           touch with our{" "}
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400"
           >
             support team
-          </a>
+          </Link>
           .
         </p>
       </div>
