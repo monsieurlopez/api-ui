@@ -152,7 +152,7 @@ export const TablePlans: React.FC<TablePlansProps> = ({
                   <span className="sr-only">Link to activate plan</span>
                 </th>
                 {plans.map((plan) => (
-                  <td key={plan.name} className="px-6 pt-6 lg:px-8">
+                  <td key={plan.name} className="px-4 pt-6 lg:px-8">
                     <Link to={plan.buttonLink}>
                       <Button
                         type={plan.isStarter ? "default" : "primary"}
