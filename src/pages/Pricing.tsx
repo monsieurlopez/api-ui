@@ -1,7 +1,14 @@
 import type React from "react";
 import { PricingCards } from "../components/pricing/PricingCards";
+//import { TablePlans } from "../components/setting/account/TablePlans";
+import { Faqs } from "../components/setting/account/Faqs";
+
 import { HeaderContain } from "../components/global/HeaderContain";
+import { faqsDictionary } from "../config/faqsDictionary";
 export const Pricing: React.FC = () => {
+  //const [billingFrequency, setBillingFrequency] = React.useState<
+  "monthly" | ("annually" > "monthly");
+
   return (
     <section className="container md:w-5xl flex flex-col mx-auto">
       <HeaderContain
@@ -9,6 +16,12 @@ export const Pricing: React.FC = () => {
         descriptionKey="headers.pricing.description"
       />
       <PricingCards />
+      {/*<TablePlans
+        plans={plans}
+        sections={sections}
+        billingFrequency={billingFrequency}
+      />*/}
+      <Faqs faqs={faqsDictionary} />
     </section>
   );
 };
