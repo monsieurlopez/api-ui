@@ -8,7 +8,7 @@ const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <Layout className="h-screen">
+    <Layout className="min-h-screen">
       <SidebarMenu collapsed={collapsed} onCollapse={setCollapsed} />
       <Layout>
         <HeaderBar
