@@ -1,18 +1,25 @@
 import React from "react";
 import { Progress, Tabs } from "antd";
 import { Link } from "react-router-dom";
+import "./Usage.css";
 
 export const Usage: React.FC = () => {
   return (
     <>
-      <h2 className="text-2xl font-semibold text-gray-900">Usage</h2>
+      <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        Usage
+      </h2>
       <p className="mt-1 text-gray-500">
         Update your payment information or switch plans according to your needs
       </p>
       <Tabs className="mt-6">
         <div className="mt-8 sm:mx-auto sm:max-w-7xl">
-          <h3 className="font-semibold text-gray-900">Calls</h3>
-          <p className="mt-6 font-medium text-gray-900">Remaining calls</p>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+            Calls
+          </h3>
+          <p className="mt-6 font-medium text-gray-900 dark:text-gray-400">
+            Remaining calls
+          </p>
           <Progress percent={60} className="mt-2" />
           <div className="mt-3 flex items-center justify-between">
             <p className="flex items-center space-x-2">
