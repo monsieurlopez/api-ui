@@ -4,12 +4,14 @@ import { TablePlans } from "../components/setting/account/TablePlans";
 import { Faqs } from "../components/setting/account/Faqs";
 import { HeaderContain } from "../components/global/HeaderContain";
 import { faqsDictionary } from "../config/faqsDictionary";
-import { plans, sections } from "../config/plansDictionary"; // Asegúrate de que la ruta es correcta
+import { plans, sections } from "../config/plansDictionary";
 
 export const Pricing: React.FC = () => {
-  const [billingFrequency, setBillingFrequency] = React.useState<
+  const [billingFrequency] = React.useState<"monthly" | "annually">("annually");
+
+  /*const [billingFrequency, setBillingFrequency] = React.useState<
     "monthly" | "annually"
-  >("annually");
+  >("annually");*/
 
   return (
     <section className="container md:w-5xl flex flex-col mx-auto">
