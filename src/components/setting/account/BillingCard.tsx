@@ -61,7 +61,9 @@ export const BillingCard: React.FC = () => {
     <div className="w-full overflow-x-auto">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div className="text-left">
-          <h4 className="font-semibold text-gray-900">Payment method</h4>
+          <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+            Payment method
+          </h4>
           <p className="mt-2 text-gray-500">
             Payments will be taken from the card listed below, and you can
             update it by adding a new card through the menu on the right.
