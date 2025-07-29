@@ -7,7 +7,7 @@ export const Usage: React.FC = () => {
   return (
     <>
       <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-        Usage
+        Usage this month
       </h2>
       <p className="mt-1 text-gray-500">
         Update your payment information or switch plans according to your needs

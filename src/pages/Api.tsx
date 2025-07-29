@@ -1,6 +1,7 @@
 import type React from "react";
 import { HeaderContain } from "../components/global/HeaderContain";
 import { Usage } from "../components/setting/api/Usage";
+import { ApiKeyManagement } from "../components/setting/api/ApiKeyManagement";
 
 export const Api: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ export const Api: React.FC = () => {
         descriptionKey="headers.api.description"
       />
       <Usage />
+      <ApiKeyManagement />
     </section>
   );
 };
