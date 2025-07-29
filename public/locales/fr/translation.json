@@ -108,5 +108,20 @@
   "header": {
     "signin": "Se connecter",
     "signout": "Se déconnecter"
+  },
+  "faqs": {
+    "title": "Foire aux questions",
+    "description": "Vous ne trouvez pas la réponse que vous cherchez ? N'hésitez pas à contacter notre",
+    "support_team": "équipe de support",
+    "question1": "Qu'est-ce que l'API de la SEC et quelles données puis-je accéder via celle-ci?",
+    "answer1": "L'API de la SEC fournit un accès aux données financières soumises à la Securities and Exchange Commission des États-Unis, y compris les dépôts de sociétés, les états financiers, et plus encore.",
+    "question2": "Comment puis-je obtenir une clé API pour accéder à l'API de la SEC?",
+    "answer2": "Pour obtenir une clé API, vous devez généralement vous inscrire sur le site officiel de la SEC ou sur la plateforme fournissant le service API et suivre leurs instructions spécifiques pour l'accès à l'API.",
+    "question3": "Quelles sont les limites de taux pour l'API de la SEC?",
+    "answer3": "Les limites de taux pour l'API de la SEC peuvent varier, mais généralement, il y a des limites sur le nombre de requêtes que vous pouvez faire par minute ou par jour. Consultez la documentation de l'API pour plus de détails.",
+    "question4": "Puis-je utiliser l'API de la SEC à des fins commerciales?",
+    "answer4": "Oui, vous pouvez utiliser l'API de la SEC à des fins commerciales, mais vous devez examiner les conditions de service pour assurer la conformité avec toute restriction ou exigence.",
+    "question5": "Que dois-je faire si je rencontre des erreurs lors de l'utilisation de l'API de la SEC?",
+    "answer5": "Si vous rencontrez des erreurs, consultez la documentation de l'API pour des conseils de dépannage. Vous pouvez également contacter l'équipe de support pour une assistance supplémentaire."
   }
 }

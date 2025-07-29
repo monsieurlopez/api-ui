@@ -89,8 +89,7 @@ export const TablePlans: React.FC<TablePlansProps> = ({
                           ? billingFrequency === "monthly"
                             ? plan.price.monthly
                             : plan.price.annually
-                          : plan.price}{" "}
-                        / per user
+                          : plan.price}
                       </div>
                     </div>
                   </th>

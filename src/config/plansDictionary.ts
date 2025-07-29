@@ -1,4 +1,3 @@
-// plansDictionary.ts
 export interface Plan {
   name: string;
   price: string | { monthly: string; annually: string };
@@ -20,22 +19,22 @@ export interface Section {
 
 export const plans: Plan[] = [
   {
-    name: "Starter",
+    name: "Free",
     price: "$0",
     buttonText: "Get started",
     buttonLink: "#",
     isStarter: true,
   },
   {
-    name: "Teams",
-    price: { monthly: "$49", annually: "$39" },
+    name: "Starter",
+    price: { monthly: "€50", annually: "€490" },
     buttonText: "Free trial",
     buttonLink: "#",
     isStarter: false,
   },
   {
-    name: "Business",
-    price: { monthly: "$99", annually: "$79" },
+    name: "Enterprise",
+    price: "Custom",
     buttonText: "Free trial",
     buttonLink: "#",
     isStarter: false,

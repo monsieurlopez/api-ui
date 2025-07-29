@@ -3,7 +3,6 @@ import { PricingCards } from "../components/pricing/PricingCards";
 import { TablePlans } from "../components/pricing/TablePlans";
 import { Faqs } from "../components/pricing/Faqs";
 import { HeaderContain } from "../components/global/HeaderContain";
-import { faqsDictionary } from "../config/faqsDictionary";
 import { plans, sections } from "../config/plansDictionary";
 
 export const Pricing: React.FC = () => {
@@ -25,7 +24,7 @@ export const Pricing: React.FC = () => {
         sections={sections}
         billingFrequency={billingFrequency}
       />
-      <Faqs faqs={faqsDictionary} />
+      <Faqs />
     </section>
   );
 };
