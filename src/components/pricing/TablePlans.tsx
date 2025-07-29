@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { useTheme } from "../../../context/useTheme";
+import { useTheme } from "../../context/useTheme";
 import { Button, /*Tooltip,*/ Grid } from "antd";
 import {
   CheckCircleOutlined,
@@ -7,7 +7,7 @@ import {
   //InfoCircleOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import type { Plan, Section } from "../../../config/plansDictionary";
+import type { Plan, Section } from "../../config/plansDictionary";
 
 interface TablePlansProps {
   plans: Plan[];

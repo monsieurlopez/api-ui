@@ -1,7 +1,7 @@
 import React from "react";
 import { PricingCards } from "../components/pricing/PricingCards";
-import { TablePlans } from "../components/setting/account/TablePlans";
-import { Faqs } from "../components/setting/account/Faqs";
+import { TablePlans } from "../components/pricing/TablePlans";
+import { Faqs } from "../components/pricing/Faqs";
 import { HeaderContain } from "../components/global/HeaderContain";
 import { faqsDictionary } from "../config/faqsDictionary";
 import { plans, sections } from "../config/plansDictionary";

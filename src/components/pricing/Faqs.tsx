@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DownOutlined } from "@ant-design/icons";
-import { type FaqItem } from "../../../config/faqsDictionary";
+import { type FaqItem } from "../../config/faqsDictionary";
 import { Link } from "react-router-dom";
 
 interface FaqsProps {
@@ -15,8 +15,8 @@ export const Faqs: React.FC<FaqsProps> = ({ faqs }) => {
   };
 
   return (
-    <section className="mt-15 flex flex-col lg:flex-row justify-between lg:gap-1 gap-8">
-      <div className="lg:w-1/2 lg:pr-10">
+    <section className="mt-20 flex flex-col xl:flex-row justify-between lg:gap-4 gap-8 mx-auto">
+      <div className="w-full xl:w-1/2 lg:pr-10">
         <h2 className="tracking-tight text-2xl font-semibold text-gray-900 dark:text-white">
           Frequently asked questions
         </h2>
@@ -32,7 +32,7 @@ export const Faqs: React.FC<FaqsProps> = ({ faqs }) => {
           .
         </p>
       </div>
-      <div className="lg:w-1/2">
+      <div className="w-full xl:w-1/2">
         {faqs.map((faq, index) => (
           <div
             key={index}
