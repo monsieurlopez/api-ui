@@ -23,8 +23,8 @@ export const MainContent: React.FC = () => {
       <Content
         style={{
           backgroundColor: theme === "dark" ? "#001529" : "#fff",
-          borderLeft: "1px solid #f0f0f0",
         }}
+        className="lg:border-l border-gray-200 dark:border-gray-700"
       >
         <div
           style={{
