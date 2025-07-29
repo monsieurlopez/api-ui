@@ -139,9 +139,13 @@ export const TablePlans: React.FC<TablePlansProps> = ({
                           ) : (
                             <>
                               {feature.plans[plan.name] === true ? (
-                                <CheckCircleOutlined className="text-indigo-600 dark:text-indigo-400" />
+                                <CheckCircleOutlined
+                                  style={{ color: "#52c41a", fontSize: "1rem" }}
+                                />
                               ) : (
-                                <MinusCircleOutlined className="text-gray-400 dark:text-gray-600" />
+                                <MinusCircleOutlined
+                                  style={{ color: "#6a7282", fontSize: "1rem" }}
+                                />
                               )}
                             </>
                           )}
