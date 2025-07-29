@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Table, Button, Modal, Form, Input, message } from "antd";
+import { Table, Button, Modal, Form, Input, message, Grid } from "antd";
 import { EditOutlined, DeleteOutlined, CopyOutlined } from "@ant-design/icons";
 
 interface ApiKey {
@@ -9,12 +9,22 @@ interface ApiKey {
   apiKey: string;
 }
 
+const generateRandomApiKey = (): string => {
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const randomString = Array.from({ length: 50 }, () =>
+    characters.charAt(Math.floor(Math.random() * characters.length))
+  ).join("");
+
+  return `insidersmoves${randomString}`;
+};
+
 export const ApiKeyManagement: React.FC = () => {
   const [dataSource, setDataSource] = useState<ApiKey[]>([
     {
       key: "1",
-      name: "CoinRanking",
-      apiKey: "coinranking22b1d5f1ed17ba55bcd4a9c076747c62d4bca3520a85df31",
+      name: "Api Key Default",
+      apiKey: "insidersmoves22b1d5f1ed17ba55bcd4a9c076747c62d4bca3520a85df3",
       creationDate: new Date("2025-02-10").toLocaleDateString(),
     },
   ]);
@@ -22,6 +32,9 @@ export const ApiKeyManagement: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [editingKey, setEditingKey] = useState<ApiKey | null>(null);
   const [form] = Form.useForm();
+  const [messageApi, contextHolder] = message.useMessage();
+  const { useBreakpoint } = Grid;
+  const screens = useBreakpoint();
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -37,17 +50,17 @@ export const ApiKeyManagement: React.FC = () => {
     setEditingKey(record);
     form.setFieldsValue({
       name: record.name,
-      apiKey: record.apiKey,
     });
     showModal();
   };
 
   const handleDelete = (key: string) => {
     setDataSource(dataSource.filter((item) => item.key !== key));
-    message.success("API Key deleted successfully");
+    messageApi.open({
+      type: "success",
+      content: "API Key deleted successfully",
+    });
   };
-
-  const [messageApi, contextHolder] = message.useMessage();
 
   const handleCopyToClipboard = (apiKey: string) => {
     navigator.clipboard.writeText(apiKey).then(
@@ -59,6 +72,10 @@ export const ApiKeyManagement: React.FC = () => {
       },
       (err) => {
         console.error("Could not copy text: ", err);
+        messageApi.open({
+          type: "error",
+          content: "Could not copy text to clipboard",
+        });
       }
     );
   };
@@ -67,34 +84,36 @@ export const ApiKeyManagement: React.FC = () => {
     form
       .validateFields()
       .then((values) => {
-        const currentDate = new Date().toLocaleDateString();
-
-        if (editingKey) {
-          setDataSource(
-            dataSource.map((item) =>
-              item.key === editingKey.key
-                ? { ...item, name: values.name, apiKey: values.apiKey }
-                : item
-            )
-          );
-          message.success("API Key updated successfully");
-        } else {
-          setDataSource([
-            ...dataSource,
-            {
-              key: Date.now().toString(),
-              name: values.name,
-              apiKey: values.apiKey,
-              creationDate: currentDate,
-            },
-          ]);
-          message.success("API Key added successfully");
-        }
+        setDataSource(
+          dataSource.map((item) =>
+            item.key === editingKey?.key ? { ...item, name: values.name } : item
+          )
+        );
+        messageApi.open({
+          type: "success",
+          content: "API Key updated successfully",
+        });
         handleCancel();
       })
       .catch((info) => {
         console.log("Validate Failed:", info);
       });
+  };
+
+  const handleCreateApiKey = () => {
+    const randomApiKey = generateRandomApiKey();
+    const newApiKey = {
+      key: Date.now().toString(),
+      name: `API Key ${Date.now()}`,
+      apiKey: randomApiKey,
+      creationDate: new Date().toLocaleDateString(),
+    };
+
+    setDataSource([...dataSource, newApiKey]);
+    messageApi.open({
+      type: "success",
+      content: "API Key created successfully",
+    });
   };
 
   const columns = [
@@ -108,13 +127,16 @@ export const ApiKeyManagement: React.FC = () => {
       dataIndex: "apiKey",
       key: "apiKey",
       render: (apiKey: string, record: ApiKey) => (
-        <div style={{ display: "flex", alignItems: "center" }}>
-          {`${apiKey.substring(0, 8)}...`}
+        <div className="flex justify-start items-center">
+          {screens.xs
+            ? `${apiKey.substring(0, 10)}...`
+            : `${apiKey.substring(0, 30)}...`}
           <Button
             type="text"
             icon={<CopyOutlined />}
             onClick={() => handleCopyToClipboard(record.apiKey)}
-            style={{ marginLeft: "8px" }}
+            className="mx-auto"
+            title="Copy to clipboard"
           />
         </div>
       ),
@@ -128,19 +150,20 @@ export const ApiKeyManagement: React.FC = () => {
       title: "Actions",
       key: "actions",
       render: (_: any, record: ApiKey) => (
-        <div>
+        <div className="flex items-center">
           <Button
             type="link"
             icon={<EditOutlined />}
             onClick={() => handleEdit(record)}
-          ></Button>
+            title="Edit"
+          />
           <Button
             type="link"
             icon={<DeleteOutlined />}
             onClick={() => handleDelete(record.key)}
             danger
-            style={{ marginLeft: "8px" }}
-          ></Button>
+            title="Delete"
+          />
         </div>
       ),
     },
@@ -161,10 +184,10 @@ export const ApiKeyManagement: React.FC = () => {
         </div>
         <Button
           type="primary"
-          onClick={showModal}
+          onClick={handleCreateApiKey}
           className="whitespace-nowrap rounded bg-blue-500 px-3 py-2 font-medium text-white shadow hover:bg-blue-700 flex max-w-max"
         >
-          Add New API Key
+          Create New API Key
         </Button>
       </div>
       <div className="mt-6">
@@ -176,7 +199,7 @@ export const ApiKeyManagement: React.FC = () => {
         />
       </div>
       <Modal
-        title={editingKey ? "Edit API Key" : "Add New API Key"}
+        title="Edit API Key Name"
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -186,13 +209,6 @@ export const ApiKeyManagement: React.FC = () => {
             name="name"
             label="Name"
             rules={[{ required: true, message: "Please input the name!" }]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="apiKey"
-            label="API Key"
-            rules={[{ required: true, message: "Please input the API key!" }]}
           >
             <Input />
           </Form.Item>
