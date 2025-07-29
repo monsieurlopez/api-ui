@@ -26,6 +26,7 @@ export const Pricing: React.FC = () => {
         billingFrequency={billingFrequency}
       />
       <Faqs faqs={faqsDictionary} />
+      <Faqs faqs={faqsDictionary} />
     </section>
   );
 };
