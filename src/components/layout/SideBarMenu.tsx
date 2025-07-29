@@ -98,6 +98,7 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
         selectedKeys={[findKeyByPath(location.pathname)!]}
         onClick={handleMenuClick}
         items={buildMenuItems(navItems)}
+        style={{ border: "none" }}
       />
 
       {/*<div

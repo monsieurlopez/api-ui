@@ -24,7 +24,7 @@ export const MainContent: React.FC = () => {
         style={{
           backgroundColor: theme === "dark" ? "#001529" : "#fff",
         }}
-        className="lg:border-l border-gray-200 dark:border-gray-700"
+        className="sm:border-l border-gray-200 dark:border-gray-700"
       >
         <div
           style={{

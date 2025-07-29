@@ -43,7 +43,7 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
         top: isMobile ? 0 : undefined,
         zIndex: isMobile ? 100 : undefined,
       }}
-      className={`flex justify-between items-center ${isMobileBoxShadow} lg:border-l border-gray-200 dark:border-gray-700`}
+      className={`flex justify-between items-center ${isMobileBoxShadow} sm:border-l border-gray-200 dark:border-gray-700`}
     >
       <ButtonCollapseSider
         collapsed={collapsed}
