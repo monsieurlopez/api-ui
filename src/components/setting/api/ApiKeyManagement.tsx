@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Table, Button, Modal, Form, Input, message, Grid } from "antd";
+import { Table, Button, Modal, Form, Input, message, Grid, Tabs } from "antd";
 import { EditOutlined, DeleteOutlined, CopyOutlined } from "@ant-design/icons";
 
 interface ApiKey {
@@ -149,7 +149,7 @@ export const ApiKeyManagement: React.FC = () => {
     {
       title: "Actions",
       key: "actions",
-      render: (_: any, record: ApiKey) => (
+      render: (_: unknown, record: ApiKey) => (
         <div className="flex items-center">
           <Button
             type="link"
@@ -174,9 +174,9 @@ export const ApiKeyManagement: React.FC = () => {
       {contextHolder}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div className="text-left">
-          <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
             Your API Keys
-          </h4>
+          </h2>
           <p className="mt-2 text-gray-500">
             Here you can manage your API keys. You can edit, delete, or add new
             API keys as needed.
@@ -190,14 +190,16 @@ export const ApiKeyManagement: React.FC = () => {
           Create New API Key
         </Button>
       </div>
-      <div className="mt-6">
-        <Table
-          dataSource={dataSource}
-          columns={columns}
-          pagination={false}
-          scroll={{ x: true }}
-        />
-      </div>
+      <Tabs className="mt-6">
+        <div className="mt-6">
+          <Table
+            dataSource={dataSource}
+            columns={columns}
+            pagination={false}
+            scroll={{ x: true }}
+          />
+        </div>
+      </Tabs>
       <Modal
         title="Edit API Key Name"
         visible={isModalVisible}
