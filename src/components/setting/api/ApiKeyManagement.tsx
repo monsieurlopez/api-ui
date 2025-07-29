@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Table, Button, Modal, Form, Input, message, Grid, Tabs } from "antd";
-import { EditOutlined, DeleteOutlined, CopyOutlined } from "@ant-design/icons";
+import {
+  EditOutlined,
+  DeleteOutlined,
+  CopyOutlined,
+  ExclamationCircleOutlined,
+} from "@ant-design/icons";
 
 interface ApiKey {
   key: string;
@@ -30,7 +35,9 @@ export const ApiKeyManagement: React.FC = () => {
   ]);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [editingKey, setEditingKey] = useState<ApiKey | null>(null);
+  const [keyToDelete, setKeyToDelete] = useState<string | null>(null);
   const [form] = Form.useForm();
   const [messageApi, contextHolder] = message.useMessage();
   const { useBreakpoint } = Grid;
@@ -40,10 +47,20 @@ export const ApiKeyManagement: React.FC = () => {
     setIsModalVisible(true);
   };
 
+  const showDeleteModal = (key: string) => {
+    setKeyToDelete(key);
+    setIsDeleteModalVisible(true);
+  };
+
   const handleCancel = () => {
     setIsModalVisible(false);
     setEditingKey(null);
     form.resetFields();
+  };
+
+  const handleDeleteCancel = () => {
+    setIsDeleteModalVisible(false);
+    setKeyToDelete(null);
   };
 
   const handleEdit = (record: ApiKey) => {
@@ -54,12 +71,15 @@ export const ApiKeyManagement: React.FC = () => {
     showModal();
   };
 
-  const handleDelete = (key: string) => {
-    setDataSource(dataSource.filter((item) => item.key !== key));
-    messageApi.open({
-      type: "success",
-      content: "API Key deleted successfully",
-    });
+  const handleDelete = () => {
+    if (keyToDelete) {
+      setDataSource(dataSource.filter((item) => item.key !== keyToDelete));
+      messageApi.open({
+        type: "success",
+        content: "API Key deleted successfully",
+      });
+      handleDeleteCancel();
+    }
   };
 
   const handleCopyToClipboard = (apiKey: string) => {
@@ -160,7 +180,7 @@ export const ApiKeyManagement: React.FC = () => {
           <Button
             type="link"
             icon={<DeleteOutlined />}
-            onClick={() => handleDelete(record.key)}
+            onClick={() => showDeleteModal(record.key)}
             danger
             title="Delete"
           />
@@ -215,6 +235,19 @@ export const ApiKeyManagement: React.FC = () => {
             <Input />
           </Form.Item>
         </Form>
+      </Modal>
+      <Modal
+        title="Confirm Delete"
+        visible={isDeleteModalVisible}
+        onOk={handleDelete}
+        onCancel={handleDeleteCancel}
+        okText="Delete"
+        cancelText="Cancel"
+      >
+        <div className="flex items-center">
+          <ExclamationCircleOutlined className="text-yellow-500 mr-2" />
+          <p>Are you sure you want to delete this API Key?</p>
+        </div>
       </Modal>
     </div>
   );
