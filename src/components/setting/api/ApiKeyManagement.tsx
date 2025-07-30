@@ -212,7 +212,6 @@ export const ApiKeyManagement: React.FC = () => {
             columns={columns}
             pagination={false}
             scroll={{ x: true }}
-            className="mb-4"
           />
         </div>
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">

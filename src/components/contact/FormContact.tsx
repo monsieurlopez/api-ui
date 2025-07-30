@@ -126,9 +126,8 @@ export const FormContact: React.FC = () => {
           <Button
             type="primary"
             htmlType="submit"
-            size="large"
             block
-            className="max-w-max"
+            className="flex max-w-max"
           >
             {t("contact.submit")}
           </Button>
