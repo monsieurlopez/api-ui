@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Table, Button, Modal, Form, Input, message, Grid, Tabs } from "antd";
 import {
   EditOutlined,
@@ -20,7 +21,6 @@ const generateRandomApiKey = (): string => {
   const randomString = Array.from({ length: 50 }, () =>
     characters.charAt(Math.floor(Math.random() * characters.length))
   ).join("");
-
   return `insidersmoves${randomString}`;
 };
 
@@ -147,15 +147,17 @@ export const ApiKeyManagement: React.FC = () => {
       dataIndex: "apiKey",
       key: "apiKey",
       render: (apiKey: string, record: ApiKey) => (
-        <div className="flex justify-start items-center">
-          {screens.xs
-            ? `${apiKey.substring(0, 10)}...`
-            : `${apiKey.substring(0, 30)}...`}
+        <div className="flex items-center">
+          <span className="mr-2">
+            {screens.xs
+              ? `${apiKey.substring(0, 10)}...`
+              : `${apiKey.substring(0, 30)}...`}
+          </span>
           <Button
             type="text"
             icon={<CopyOutlined />}
             onClick={() => handleCopyToClipboard(record.apiKey)}
-            className="mx-auto"
+            className="p-0"
             title="Copy to clipboard"
           />
         </div>
@@ -170,12 +172,13 @@ export const ApiKeyManagement: React.FC = () => {
       title: "Actions",
       key: "actions",
       render: (_: unknown, record: ApiKey) => (
-        <div className="flex items-center">
+        <div className="flex items-center space-x-2">
           <Button
             type="link"
             icon={<EditOutlined />}
             onClick={() => handleEdit(record)}
             title="Edit"
+            className="p-0"
           />
           <Button
             type="link"
@@ -183,48 +186,60 @@ export const ApiKeyManagement: React.FC = () => {
             onClick={() => showDeleteModal(record.key)}
             danger
             title="Delete"
+            className="p-0"
           />
         </div>
       ),
     },
   ];
 
+  const hasReachedApiKeyLimit = dataSource.length >= 2;
+
   return (
-    <div className="w-full overflow-x-auto mt-15">
+    <div className="w-full overflow-x-auto mt-8">
       {contextHolder}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div className="text-left">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-            Your API Keys
-          </h2>
-          <p className="mt-2 text-gray-500">
-            Here you can manage your API keys. You can edit, delete, or add new
-            API keys as needed.
-          </p>
-        </div>
+      <div className="mb-6">
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+          Your API Keys
+        </h2>
+        <p className="mt-2 text-gray-600 dark:text-gray-400">
+          Here you can manage your API keys. You can edit, delete, or add new
+          API keys as needed.
+        </p>
+      </div>
+      <div className="mt-6">
+        <Table
+          dataSource={dataSource}
+          columns={columns}
+          pagination={false}
+          scroll={{ x: true }}
+          className="mb-4"
+        />
+      </div>
+      <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
         <Button
           type="primary"
           onClick={handleCreateApiKey}
-          className="whitespace-nowrap rounded bg-blue-500 px-3 py-2 font-medium text-white shadow hover:bg-blue-700 flex max-w-max"
+          className="rounded bg-blue-500 px-4 py-2 font-medium text-white shadow hover:bg-blue-600"
+          disabled={hasReachedApiKeyLimit}
         >
-          Create New API Key
+          Create Another API Key
         </Button>
+
+        <p className="text-gray-600 dark:text-gray-400">
+          <Link to="/pricing" className="text-blue-500 hover:text-blue-700">
+            Upgrade your plan
+          </Link>{" "}
+          to create more API keys.
+        </p>
       </div>
-      <Tabs className="mt-6">
-        <div className="mt-6">
-          <Table
-            dataSource={dataSource}
-            columns={columns}
-            pagination={false}
-            scroll={{ x: true }}
-          />
-        </div>
-      </Tabs>
       <Modal
         title="Edit API Key Name"
-        visible={isModalVisible}
+        open={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        okText="Save"
+        cancelText="Cancel"
       >
         <Form form={form} layout="vertical">
           <Form.Item
@@ -238,7 +253,7 @@ export const ApiKeyManagement: React.FC = () => {
       </Modal>
       <Modal
         title="Confirm Delete"
-        visible={isDeleteModalVisible}
+        open={isDeleteModalVisible}
         onOk={handleDelete}
         onCancel={handleDeleteCancel}
         okText="Delete"
