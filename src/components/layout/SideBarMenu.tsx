@@ -9,6 +9,8 @@ import { navItems } from "../../config/navigationConfig";
 import type { NavItem } from "../../config/navigationConfig";
 import { useTranslation } from "react-i18next";
 
+import iconPulse from "/icon_pulse.svg";
+
 const { Sider } = Layout;
 
 type Props = {
@@ -77,10 +79,9 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
     >
       <div className="demo-logo-vertical p-4 flex justify-between items-center">
         <img
-          src="/vite.svg"
-          alt="Logo Vite"
-          className="h-8 w-8"
-          style={{ marginInline: collapsed ? "auto" : 3 }}
+          src={iconPulse}
+          alt="Icon Insiders Pulse"
+          className="h-8 dark:fill-white dark:stroke-white"
         />
         <ButtonCollapseSider
           collapsed={collapsed}
