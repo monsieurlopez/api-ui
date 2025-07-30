@@ -7,4 +7,14 @@ export default defineConfig({
     postcss: "./postcss.config.js",
   },
   base: "/",
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://api-ui-neon.vercel.app",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 });
