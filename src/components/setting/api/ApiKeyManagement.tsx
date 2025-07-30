@@ -196,43 +196,43 @@ export const ApiKeyManagement: React.FC = () => {
   const hasReachedApiKeyLimit = dataSource.length >= 2;
 
   return (
-    <div className="w-full overflow-x-auto mt-8">
+    <div className="w-full overflow-x-auto mt-15">
       {contextHolder}
-      <div className="mb-6">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-          Your API Keys
-        </h2>
-        <p className="mt-2 text-gray-600 dark:text-gray-400">
-          Here you can manage your API keys. You can edit, delete, or add new
-          API keys as needed.
-        </p>
-      </div>
-      <div className="mt-6">
-        <Table
-          dataSource={dataSource}
-          columns={columns}
-          pagination={false}
-          scroll={{ x: true }}
-          className="mb-4"
-        />
-      </div>
-      <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
-        <Button
-          type="primary"
-          onClick={handleCreateApiKey}
-          className="rounded bg-blue-500 px-4 py-2 font-medium text-white shadow hover:bg-blue-600"
-          disabled={hasReachedApiKeyLimit}
-        >
-          Create Another API Key
-        </Button>
+      <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        Your API Keys
+      </h2>
+      <p className="mt-2 text-gray-600 dark:text-gray-400">
+        Here you can manage your API keys. You can edit, delete, or add new API
+        keys as needed.
+      </p>
+      <Tabs className="mt-6">
+        <div className="mt-6">
+          <Table
+            dataSource={dataSource}
+            columns={columns}
+            pagination={false}
+            scroll={{ x: true }}
+            className="mb-4"
+          />
+        </div>
+        <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
+          <Button
+            type="primary"
+            onClick={handleCreateApiKey}
+            className="rounded bg-blue-500 px-4 py-2 font-medium text-white shadow hover:bg-blue-600"
+            disabled={hasReachedApiKeyLimit}
+          >
+            Create Another API Key
+          </Button>
 
-        <p className="text-gray-600 dark:text-gray-400">
-          <Link to="/pricing" className="text-blue-500 hover:text-blue-700">
-            Upgrade your plan
-          </Link>{" "}
-          to create more API keys.
-        </p>
-      </div>
+          <p className="text-gray-600 dark:text-gray-400">
+            <Link to="/pricing" className="text-blue-500 hover:text-blue-700">
+              Upgrade your plan
+            </Link>{" "}
+            to create more API keys.
+          </p>
+        </div>
+      </Tabs>
       <Modal
         title="Edit API Key Name"
         open={isModalVisible}

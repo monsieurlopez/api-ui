@@ -5,7 +5,7 @@ import "./Usage.css";
 
 export const Usage: React.FC = () => {
   return (
-    <>
+    <div className="w-full overflow-x-auto mt-15">
       <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
         Usage this month
       </h2>
@@ -37,6 +37,6 @@ export const Usage: React.FC = () => {
           </div>
         </div>
       </Tabs>
-    </>
+    </div>
   );
 };
