@@ -28,7 +28,7 @@ export const ScrollToTop: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-2 right-2 lg:bottom-6 lg:right-6 z-999">
+    <div className="fixed bottom-2 right-2 lg:bottom-6 lg:right-6 z-50">
       {isVisible && (
         <Button
           title="Scroll to top"

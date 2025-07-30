@@ -9,7 +9,7 @@ export const ActivePlan = () => {
         This is the plan you are currently using
       </p>
       <Tabs className="mt-6">
-        <div className="border rounded-lg border-gray-200 dark:bg-gray-600 px-5 py-5 dark:text-white text-xl font-semibold">
+        <div className="border rounded-lg border-gray-400 dark:bg-gray-600 px-5 py-5 dark:text-white text-xl font-semibold">
           Free
         </div>
       </Tabs>
