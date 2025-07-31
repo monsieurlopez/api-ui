@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, Layout } from "antd";
 import { ButtonCollapseSider } from "../global/ButtonCollapseSider";
-//import { SignedIn, UserButton } from "@clerk/clerk-react";
+import { SignedIn, UserButton } from "@clerk/clerk-react";
 import type { MenuProps } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/useTheme";
@@ -93,7 +93,6 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
           style={{ display: isMobile ? "block" : "none" }}
         />
       </div>
-
       <Menu
         theme={theme === "dark" ? "dark" : "light"}
         mode="inline"
@@ -102,20 +101,19 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
         items={buildMenuItems(navItems)}
         style={{ border: "none" }}
       />
-
-      {/*<div
-        className={`absolute ${
+      <div
+        className={`${
           isMobile
-            ? "bottom-5 left-5"
+            ? "hidden"
             : collapsed
-              ? "bottom-13 left-7"
-              : "bottom-15 left-10"
+              ? "absolute bottom-13 left-7"
+              : "absolute bottom-15 left-10"
         }`}
       >
         <SignedIn>
           <UserButton showName={!collapsed} />
         </SignedIn>
-      </div>*/}
+      </div>
     </Sider>
   );
 };

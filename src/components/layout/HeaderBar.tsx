@@ -1,15 +1,16 @@
 //* Todo el codigo comentado es para poder usar Vercel y Clerk *//
 import { Layout, Grid } from "antd";
-//import { Button } from "antd";
+import { Button } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 import { ButtonCollapseSider } from "../global/ButtonCollapseSider";
 import { BreadcrumbComponent } from "../global/BreadcrumbComponent";
-/*import {
+import {
   SignedIn,
   SignedOut,
   SignInButton,
-  SignOutButton,
-} from "@clerk/clerk-react";*/
-//import { useTranslation } from "react-i18next";
+  UserButton,
+} from "@clerk/clerk-react";
+import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/useTheme";
 
 const { Header } = Layout;
@@ -20,7 +21,7 @@ type Props = {
 };
 
 export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
-  //const { t } = useTranslation();
+  const { t } = useTranslation();
   const { theme } = useTheme();
   const { useBreakpoint } = Grid;
   const screens = useBreakpoint();
@@ -38,7 +39,7 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
       style={{
         backgroundColor: theme === "dark" ? "#001529" : "#fff",
         margin: 0,
-        padding: 0,
+        padding: isMobile ? 2 : 0,
         position: isMobile ? "sticky" : "relative",
         top: isMobile ? 0 : undefined,
         zIndex: isMobile ? 100 : undefined,
@@ -49,7 +50,7 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
         collapsed={collapsed}
         toggleCollapsed={toggleCollapsed}
         theme={theme}
-        iconSize={20}
+        iconSize={15}
         style={{ display: isMobile ? "flex" : "none" }}
       />
 
@@ -58,30 +59,28 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
           display: isMobile ? "block" : "none",
           cursor: "default",
           color: theme === "dark" ? "#fff" : "#001529",
-          marginRight: "10px",
         }}
         separator
       />
 
-      {/*<div className="sm:absolute right-0 mr-2 flex items-center gap-2">
+      <div className={`${isMobile ? "flex" : "absolute right-2"}`}>
         <SignedOut>
           <SignInButton>
-            <Button type={theme === "dark" ? "primary" : "default"}>
-              {t("header.signin")}
-            </Button>
-          </SignInButton>
-        </SignedOut>
-        <SignedIn>
-          <SignOutButton>
             <Button
               type={theme === "dark" ? "primary" : "default"}
-              size="small"
-            >
-              {t("header.signout")}
-            </Button>
-          </SignOutButton>
-        </SignedIn>
-      </div>*/}
+              shape="circle"
+              icon={<UserOutlined />}
+              title={t("header.signin")}
+              size={isMobile ? undefined : "large"}
+            ></Button>
+          </SignInButton>
+        </SignedOut>
+        <div className={`${isMobile ? "flex mr-1" : "hidden"}`}>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </div>
+      </div>
     </Header>
   );
 };
