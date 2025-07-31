@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, Layout } from "antd";
 import { ButtonCollapseSider } from "../global/ButtonCollapseSider";
-import { SignedIn, UserButton } from "@clerk/clerk-react";
+//import { SignedIn, UserButton } from "@clerk/clerk-react";
 import type { MenuProps } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/useTheme";
@@ -101,7 +101,7 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
         items={buildMenuItems(navItems)}
         style={{ border: "none" }}
       />
-      <div
+      {/*<div
         className={`${
           isMobile
             ? "hidden"
@@ -113,7 +113,7 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
         <SignedIn>
           <UserButton showName={!collapsed} />
         </SignedIn>
-      </div>
+      </div>*/}
     </Sider>
   );
 };

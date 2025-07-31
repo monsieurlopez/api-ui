@@ -1,16 +1,16 @@
 //* Todo el codigo comentado es para poder usar Vercel y Clerk *//
 import { Layout, Grid } from "antd";
-import { Button } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+//import { Button } from "antd";
+//import { UserOutlined } from "@ant-design/icons";
 import { ButtonCollapseSider } from "../global/ButtonCollapseSider";
 import { BreadcrumbComponent } from "../global/BreadcrumbComponent";
-import {
+/*import {
   SignedIn,
   SignedOut,
   SignInButton,
   UserButton,
-} from "@clerk/clerk-react";
-import { useTranslation } from "react-i18next";
+} from "@clerk/clerk-react";*/
+//import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/useTheme";
 
 const { Header } = Layout;
@@ -21,7 +21,7 @@ type Props = {
 };
 
 export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
-  const { t } = useTranslation();
+  //const { t } = useTranslation();
   const { theme } = useTheme();
   const { useBreakpoint } = Grid;
   const screens = useBreakpoint();
@@ -63,7 +63,7 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
         separator
       />
 
-      <div className={`${isMobile ? "flex" : "absolute right-2"}`}>
+      {/*<div className={`${isMobile ? "flex" : "absolute right-2"}`}>
         <SignedOut>
           <SignInButton>
             <Button
@@ -80,7 +80,7 @@ export const HeaderBar = ({ collapsed, toggleCollapsed }: Props) => {
             <UserButton />
           </SignedIn>
         </div>
-      </div>
+      </div>*/}
     </Header>
   );
 };
