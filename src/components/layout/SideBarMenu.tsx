@@ -81,6 +81,7 @@ export const SidebarMenu = ({ collapsed, onCollapse }: Props) => {
         <img
           src={iconPulse}
           alt="Icon Insiders Pulse"
+          style={{ marginInline: collapsed ? "auto" : 3 }}
           className="h-8 dark:fill-white dark:stroke-white"
         />
         <ButtonCollapseSider
